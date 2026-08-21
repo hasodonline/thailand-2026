@@ -37,6 +37,7 @@ PLACES = {
     "rafting":      (19.2207, 98.8492),  # 8Adventures Camp, Kuet Chang
     "raya":         (18.8486, 98.9853),  # Raya Heritage, Ping riverside
     "maerim":       (18.9160, 98.9350),  # Mae Rim town (route reference)
+    "pongyang":     (18.9168, 98.8215),  # Pong Yang Jungle Coaster & Zipline
 
     # Koh Phangan
     "thongsala":    (9.7069, 99.9906),   # ferry pier / main town
