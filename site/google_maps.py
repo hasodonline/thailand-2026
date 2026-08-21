@@ -130,7 +130,7 @@ def _simplify(pts, tol):
     return _simplify(pts[:idx + 1], tol)[:-1] + _simplify(pts[idx:], tol)
 
 
-def shorten(enc, budget=11000):
+def shorten(enc, budget=2200):
     """Shrink an encoded polyline until it fits `budget` characters."""
     if len(enc) <= budget:
         return enc

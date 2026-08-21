@@ -27,6 +27,9 @@ PLACES = {
     "skyline":      (18.9532, 99.3342),  # Skyline Adventure, Doi Saket (Google Places)
     "lannawild":    (18.8930, 99.3499),  # Lan Na Wild, Mae On (Google Places)
     "hotsprings":   (18.8145, 99.2294),  # San Kamphaeng hot springs
+    "passa":        (18.8446, 99.2755),  # PASSA tea plantation resort, Mae On
+    "tharnthong":   (18.8674, 99.3076),  # Tharnthong Lodges, Huai Kaeo
+    "riverkampong": (18.8684, 99.3150),  # The River Maekampong
     "thegiant":     (18.8924, 99.3513),  # The Giant treehouse cafe, Mae Kampong
     "baankangwat":  (18.7720, 98.9420),  # Baan Kang Wat artist village
     "chomcafe":     (18.7480, 98.9440),  # Chom Cafe, Mae Hia
