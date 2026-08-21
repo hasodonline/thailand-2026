@@ -43,6 +43,20 @@ def nav(origin, destination, *waypoints):
     return url
 
 
+def nav_to(destination, *waypoints):
+    """Navigate from wherever the phone currently is.
+
+    Right for day trips that start at a hotel we haven't booked yet, and for
+    anything the family might set off towards mid-morning from a cafe.
+    """
+    dq, did = _place(destination)
+    url = f"{BASE}&destination={dq}&destination_place_id={did}"
+    if waypoints:
+        url += ("&waypoints=" + "%7C".join(_place(w)[0] for w in waypoints)
+                + "&waypoint_place_ids=" + "%7C".join(_place(w)[1] for w in waypoints))
+    return url
+
+
 def pin(key):
     """Link that just drops a pin on the place."""
     q, pid = _place(key)

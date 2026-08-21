@@ -24,9 +24,10 @@ PLACES = {
     "airport":      (18.7677, 98.9620),  # CNX
     "city":         (18.7810, 98.9860),  # hotel, south Old City
     "waterpark":    (18.6974, 98.8919),  # Grand Canyon Water Park, Hang Dong
-    "skyline":      (18.8482, 99.2694),  # Skyline Jungle Luge / Huai Kaeo
+    "skyline":      (18.9532, 99.3342),  # Skyline Adventure, Doi Saket (Google Places)
     "lannawild":    (18.8930, 99.3499),  # Lan Na Wild, Mae On (Google Places)
-    "hotsprings":   (18.8330, 99.2340),  # San Kamphaeng hot springs
+    "hotsprings":   (18.8145, 99.2294),  # San Kamphaeng hot springs
+    "thegiant":     (18.8924, 99.3513),  # The Giant treehouse cafe, Mae Kampong
     "baankangwat":  (18.7720, 98.9420),  # Baan Kang Wat artist village
     "chomcafe":     (18.7480, 98.9440),  # Chom Cafe, Mae Hia
     "chailai":      (18.6583, 98.6336),  # Chai Lai Orchid, Mae Sapok
