@@ -13,6 +13,12 @@ BOOKINGS.md
 # קודי ההזמנה ושם המשפחה שמוזרקים לבנייה הפרטית
 site/private-refs.json
 
+# מפתח Google Routes API — לעולם לא ל-git
+site/.maps-api-key
+site/routes_cache.json
+site/routes_cache_google.json
+site/gmatrix.json
+
 # הבנייה הפרטית של המדריך (מכילה את הקודים).
 # הגרסה הציבורית היא docs/index.html ונבנית עם: python3 site/build.py --public
 thailand-2026-guide.html
@@ -23,3 +29,5 @@ thailand-2026-guide.html
 site/tilecache/
 .DS_Store
 **/.DS_Store
+__pycache__/
+**/__pycache__/

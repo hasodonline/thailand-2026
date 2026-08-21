@@ -1,0 +1,34 @@
+{
+ "airport": {
+  "id": "ChIJifGY5ogw2jARl0WT_eN0JKA",
+  "name": "Chiang Mai International Airport"
+ },
+ "waterpark": {
+  "id": "ChIJ8ctJP4M22jARPV0etTHeozI",
+  "name": "Grand Canyon Water Park"
+ },
+ "baankangwat": {
+  "id": "ChIJdxPPqzUx2jARn86GcuRsD1s",
+  "name": "Baan Kang Wat"
+ },
+ "chailai": {
+  "id": "ChIJPRSqPl9S2jAR8zwS5ncJ-4A",
+  "name": "Chai Lai Orchid Eco Lodge and Cafe"
+ },
+ "raya": {
+  "id": "ChIJieYgBzM82jARGOIe2G6_Bbo",
+  "name": "Raya Heritage"
+ },
+ "buatong": {
+  "id": "ChIJu1M68-cb2jARc3Tlb3ICDkw",
+  "name": "Buatong Waterfall-Chet Si Fountain National Park"
+ },
+ "treehouse": {
+  "id": "ChIJ50RYN1kK2jARhb7F2MUfjf8",
+  "name": "Tree House Hideaway บ้านต้นไม้แม่แมะ"
+ },
+ "rafting": {
+  "id": "ChIJSUeC7doM2jAR0-8x5JzSORc",
+  "name": "8Adventures Camp ATVing Rafting & Trekking"
+ }
+}
