@@ -102,39 +102,34 @@ render(
         {"n": 3, "lat": BKK[0], "lon": BKK[1], "color": RED},
     ])
 
-# ---- 2. The north loop: 6 sleeping stops, verified coordinates ----
-CMH   = (18.7810, 98.9860)   # hotel, south Old City
-GC    = (18.6974, 98.8919)   # Grand Canyon Water Park (geocoded)
-HK    = (18.8482, 99.2694)   # Huai Kaeo: Lannawild + Skyline
-MAESA = (18.8838, 98.8203)   # Mae Sa Valley Craft Village (Pong Yaeng)
-CHAI  = (18.6583, 98.6336)   # Chai Lai Orchid (geocoded)
-BT    = (19.0680, 99.0795)   # Bua Tong sticky waterfall (OSM node, km48 rte 1001)
-THH   = (19.3195, 98.8853)   # Tree House Hideaway, Ban Mae Mae
-RAFT  = (19.1450, 98.8450)   # 8Adventures, Mae Taeng valley
-RAYA  = (18.8500, 98.9830)   # Raya Heritage, Ping riverside
+# ---- 2. Three bases + day trips (final plan) ----
+CMH   = (18.7810, 98.9860)   # base 1: city hotel, 3 nights
+GC    = (18.6974, 98.8919)   # Grand Canyon Water Park (day trip)
+HK    = (18.8482, 99.2694)   # Skyline + The Giant (day trip)
+CHAI  = (18.6583, 98.6336)   # base 2: Chai Lai Orchid, 2 nights
+BT    = (19.0680, 99.0795)   # Bua Tong sticky waterfall (en route)
+RAFT  = (19.1450, 98.8450)   # 8Adventures rafting (day trip from Raya)
+RAYA  = (18.8500, 98.9830)   # base 3: Raya Heritage, 2 nights
 render(
-    bbox=(19.42, 98.50, 18.58, 99.40), z=10, out="map-north.jpg",
+    bbox=(19.30, 98.50, 18.58, 99.40), z=10, out="map-north.jpg",
     routes=[
-        {"pts": [CMH, GC], "color": GREEN, "w": 5},
-        {"pts": [GC, (18.72, 99.02), (18.80, 99.15), HK], "color": GREEN, "w": 5},
-        {"pts": [HK, (18.86, 99.12), (18.90, 99.00), (18.92, 98.94), MAESA], "color": GREEN, "w": 5},
-        {"pts": [MAESA, (18.92, 98.94), (18.80, 98.94), (18.70, 98.88), (18.66, 98.75), CHAI], "color": GREEN, "w": 5},
+        # day trips (dashed)
+        {"pts": [CMH, GC], "color": (30, 92, 63, 160), "w": 4, "dash": True},
+        {"pts": [CMH, (18.80, 99.10), HK], "color": (30, 92, 63, 160), "w": 4, "dash": True},
+        {"pts": [RAYA, (18.95, 98.96), (19.05, 98.93), RAFT], "color": (30, 92, 63, 160), "w": 4, "dash": True},
+        # base moves (solid)
+        {"pts": [CMH, (18.72, 98.93), (18.66, 98.75), CHAI], "color": GREEN, "w": 5},
         {"pts": [CHAI, (18.66, 98.75), (18.72, 98.92), (18.85, 98.97), (18.97, 99.01), BT], "color": GREEN, "w": 5},
-        {"pts": [BT, (19.10, 99.00), (19.12, 98.94), (19.22, 98.92), THH], "color": GREEN, "w": 5},
-        {"pts": [THH, (19.22, 98.92), (19.16, 98.90), RAFT], "color": GREEN, "w": 5},
-        {"pts": [RAFT, (19.05, 98.93), (18.95, 98.96), RAYA], "color": GREEN, "w": 5},
-        {"pts": [RAYA, (18.80, 98.97)], "color": (30, 92, 63, 140), "w": 4, "dash": True},
+        {"pts": [BT, (18.97, 99.01), (18.90, 98.99), RAYA], "color": GREEN, "w": 5},
     ],
     markers=[
         {"n": 1, "lat": CMH[0], "lon": CMH[1], "color": GREEN},
         {"n": 2, "lat": GC[0], "lon": GC[1], "color": GREEN},
         {"n": 3, "lat": HK[0], "lon": HK[1], "color": GREEN},
-        {"n": 4, "lat": MAESA[0], "lon": MAESA[1], "color": GREEN},
-        {"n": 5, "lat": CHAI[0], "lon": CHAI[1], "color": (166, 59, 34, 255)},
-        {"n": 6, "lat": BT[0], "lon": BT[1], "color": GREEN},
-        {"n": 7, "lat": THH[0], "lon": THH[1], "color": GREEN},
-        {"n": 8, "lat": RAFT[0], "lon": RAFT[1], "color": GREEN},
-        {"n": 9, "lat": RAYA[0], "lon": RAYA[1], "color": GREEN},
+        {"n": 4, "lat": CHAI[0], "lon": CHAI[1], "color": (166, 59, 34, 255)},
+        {"n": 5, "lat": BT[0], "lon": BT[1], "color": GREEN},
+        {"n": 6, "lat": RAFT[0], "lon": RAFT[1], "color": GREEN},
+        {"n": 7, "lat": RAYA[0], "lon": RAYA[1], "color": GREEN},
     ])
 
 # ---- 3. Koh Phangan ----
