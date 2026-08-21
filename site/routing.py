@@ -30,6 +30,8 @@ PLACES = {
     "passa":        (18.8446, 99.2755),  # PASSA tea plantation resort, Mae On
     "tharnthong":   (18.8674, 99.3076),  # Tharnthong Lodges, Huai Kaeo
     "riverkampong": (18.8684, 99.3150),  # The River Maekampong
+    "maekampong":   (18.8646, 99.3010),  # Mae Kampong mountain village
+    "mkwaterfall":  (18.8626, 99.3053),  # Mae Kampong waterfall
     "thegiant":     (18.8924, 99.3513),  # The Giant treehouse cafe, Mae Kampong
     "baankangwat":  (18.7720, 98.9420),  # Baan Kang Wat artist village
     "chomcafe":     (18.7480, 98.9440),  # Chom Cafe, Mae Hia

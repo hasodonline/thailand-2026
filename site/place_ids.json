@@ -38,5 +38,17 @@
  "passa": {
   "id": "ChIJpfUnQQSJ2TARrKLsGWs5Jyw",
   "name": "PASSA ไร่ชาผัสสะ Tea Plantation at Mae On"
+ },
+ "tharnthong": {
+  "id": "ChIJO3S4aCSM2TARBEppxiVFwVI",
+  "name": "Tharnthong Lodges"
+ },
+ "hotsprings": {
+  "id": "ChIJhc99mFSI2TARj6okSlMe5Ik",
+  "name": "San Kamphaeng Hot Springs"
+ },
+ "mkwaterfall": {
+  "id": "ChIJh6a3UOON2TAR9CjmcORB9lY",
+  "name": "Mae Kampong Waterfall"
  }
 }
