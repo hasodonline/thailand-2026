@@ -102,32 +102,39 @@ render(
         {"n": 3, "lat": BKK[0], "lon": BKK[1], "color": RED},
     ])
 
-# ---- 2. Chiang Mai adventure base (everything within ~1.5h) ----
-STICKY = (19.1518, 99.0517); DOI_IN = (18.5885, 98.4867)
-CHAILAI = (18.6389, 98.6197)      # Chai Lai Orchid, Mae Wang / Mae Sapok
-MAETAENG = (19.1667, 98.8500)     # rafting base
-SKYLINE = (18.8500, 99.2500)      # Skyline Jungle Luge, Mae On
-GRANDC = (18.6656, 98.9236)       # Grand Canyon water park, Hang Dong
-BOSANG = (18.7550, 99.1150)       # umbrella village
+# ---- 2. The north loop: 6 sleeping stops, verified coordinates ----
+CMH   = (18.7810, 98.9860)   # hotel, south Old City
+GC    = (18.6974, 98.8919)   # Grand Canyon Water Park (geocoded)
+HK    = (18.8482, 99.2694)   # Huai Kaeo: Lannawild + Skyline
+MAESA = (18.8838, 98.8203)   # Mae Sa Valley Craft Village (Pong Yaeng)
+CHAI  = (18.6583, 98.6336)   # Chai Lai Orchid (geocoded)
+BT    = (19.0680, 99.0795)   # Bua Tong sticky waterfall (OSM node, km48 rte 1001)
+THH   = (19.3195, 98.8853)   # Tree House Hideaway, Ban Mae Mae
+RAFT  = (19.1450, 98.8450)   # 8Adventures, Mae Taeng valley
+RAYA  = (18.8500, 98.9830)   # Raya Heritage, Ping riverside
 render(
-    bbox=(19.35, 98.35, 18.40, 99.45), z=10, out="map-north.jpg",
+    bbox=(19.42, 98.50, 18.58, 99.40), z=10, out="map-north.jpg",
     routes=[
-        {"pts": [CM, MAETAENG], "color": (30, 92, 63, 170), "w": 4, "dash": True},
-        {"pts": [CM, (18.98, 99.01), STICKY], "color": (30, 92, 63, 170), "w": 4, "dash": True},
-        {"pts": [CM, SKYLINE], "color": (30, 92, 63, 170), "w": 4, "dash": True},
-        {"pts": [CM, GRANDC, CHAILAI], "color": GREEN, "w": 5},
-        {"pts": [CHAILAI, DOI_IN], "color": (30, 92, 63, 170), "w": 4, "dash": True},
-        {"pts": [CM, BOSANG], "color": (30, 92, 63, 170), "w": 4, "dash": True},
+        {"pts": [CMH, GC], "color": GREEN, "w": 5},
+        {"pts": [GC, (18.72, 99.02), (18.80, 99.15), HK], "color": GREEN, "w": 5},
+        {"pts": [HK, (18.86, 99.12), (18.90, 99.00), (18.92, 98.94), MAESA], "color": GREEN, "w": 5},
+        {"pts": [MAESA, (18.92, 98.94), (18.80, 98.94), (18.70, 98.88), (18.66, 98.75), CHAI], "color": GREEN, "w": 5},
+        {"pts": [CHAI, (18.66, 98.75), (18.72, 98.92), (18.85, 98.97), (18.97, 99.01), BT], "color": GREEN, "w": 5},
+        {"pts": [BT, (19.10, 99.00), (19.12, 98.94), (19.22, 98.92), THH], "color": GREEN, "w": 5},
+        {"pts": [THH, (19.22, 98.92), (19.16, 98.90), RAFT], "color": GREEN, "w": 5},
+        {"pts": [RAFT, (19.05, 98.93), (18.95, 98.96), RAYA], "color": GREEN, "w": 5},
+        {"pts": [RAYA, (18.80, 98.97)], "color": (30, 92, 63, 140), "w": 4, "dash": True},
     ],
     markers=[
-        {"n": 1, "lat": CM[0], "lon": CM[1], "color": GREEN},
-        {"n": 2, "lat": GRANDC[0], "lon": GRANDC[1], "color": GREEN},
-        {"n": 3, "lat": SKYLINE[0], "lon": SKYLINE[1], "color": GREEN},
-        {"n": 4, "lat": MAETAENG[0], "lon": MAETAENG[1], "color": GREEN},
-        {"n": 5, "lat": CHAILAI[0], "lon": CHAILAI[1], "color": (166, 59, 34, 255)},
-        {"n": 6, "lat": DOI_IN[0], "lon": DOI_IN[1], "color": GREEN},
-        {"n": 7, "lat": STICKY[0], "lon": STICKY[1], "color": GREEN},
-        {"n": 8, "lat": BOSANG[0], "lon": BOSANG[1], "color": GREEN},
+        {"n": 1, "lat": CMH[0], "lon": CMH[1], "color": GREEN},
+        {"n": 2, "lat": GC[0], "lon": GC[1], "color": GREEN},
+        {"n": 3, "lat": HK[0], "lon": HK[1], "color": GREEN},
+        {"n": 4, "lat": MAESA[0], "lon": MAESA[1], "color": GREEN},
+        {"n": 5, "lat": CHAI[0], "lon": CHAI[1], "color": (166, 59, 34, 255)},
+        {"n": 6, "lat": BT[0], "lon": BT[1], "color": GREEN},
+        {"n": 7, "lat": THH[0], "lon": THH[1], "color": GREEN},
+        {"n": 8, "lat": RAFT[0], "lon": RAFT[1], "color": GREEN},
+        {"n": 9, "lat": RAYA[0], "lon": RAYA[1], "color": GREEN},
     ])
 
 # ---- 3. Koh Phangan ----
