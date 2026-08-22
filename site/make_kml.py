@@ -77,9 +77,18 @@ ROUTES = [
 
 
 def _simplify(pts, tol=0.0004):
-    """Douglas-Peucker, so a 1,300-point road fits comfortably in an import."""
+    """Douglas-Peucker, so a 1,300-point road fits comfortably in an import.
+
+    Closed loops need splitting first: when the first and last point coincide
+    the baseline has zero length, every perpendicular distance computes as ~0,
+    and the whole route collapses to two points. The Monday route (city → …
+    → city) hit exactly that and imported as an invisible 2-point line.
+    """
     if len(pts) < 3:
         return pts
+    if abs(pts[0][0] - pts[-1][0]) < 1e-7 and abs(pts[0][1] - pts[-1][1]) < 1e-7:
+        mid = len(pts) // 2
+        return _simplify(pts[:mid + 1], tol)[:-1] + _simplify(pts[mid:], tol)
     (ax, ay), (bx, by) = pts[0], pts[-1]
     dx, dy = bx - ax, by - ay
     norm = (dx * dx + dy * dy) ** 0.5 or 1e-12
