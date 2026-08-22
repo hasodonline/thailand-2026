@@ -30,12 +30,21 @@ PLACES = {
     "passa":        (18.8446, 99.2755),  # PASSA tea plantation resort, Mae On
     "tharnthong":   (18.8674, 99.3076),  # Tharnthong Lodges, Huai Kaeo
     "riverkampong": (18.8684, 99.3150),  # The River Maekampong
+    "rabeang":      (18.9839, 99.1239),  # Rabeang Pasak Treehouse Resort
+    "lazula":       (18.8633, 99.2990),  # LAZULA Forest Retreat
+    "morningstar":  (18.8778, 99.3428),  # Morning Star Glamping
+    "puradise":     (18.8837, 99.3599),  # Puradise Private Residence
+    "momandme":     (18.9192, 99.1364),  # Mom and Me Resort & Farm
     "maekampong":   (18.8646, 99.3010),  # Mae Kampong mountain village
     "mkwaterfall":  (18.8626, 99.3053),  # Mae Kampong waterfall
     "thegiant":     (18.8924, 99.3513),  # The Giant treehouse cafe, Mae Kampong
     "baankangwat":  (18.7720, 98.9420),  # Baan Kang Wat artist village
     "chomcafe":     (18.7480, 98.9440),  # Chom Cafe, Mae Hia
     "chailai":      (18.6583, 98.6336),  # Chai Lai Orchid, Mae Sapok
+    "wachirathan":  (18.5415, 98.5993),  # Wachirathan waterfall, Doi Inthanon
+    "maeklang":     (18.4951, 98.6680),  # Mae Klang waterfall, Doi Inthanon
+    "inthanon_hq":  (18.5367, 98.5212),  # Doi Inthanon park HQ
+
     "huaytungtao":  (18.8620, 98.9270),  # Huay Tung Tao lake
     "buatong":      (19.0694, 99.0791),  # Bua Tong sticky waterfall
     "treehouse":    (19.3194, 98.8905),  # Tree House Hideaway, Ban Mae Mae
@@ -43,6 +52,10 @@ PLACES = {
     "raya":         (18.8486, 98.9853),  # Raya Heritage, Ping riverside
     "maerim":       (18.9160, 98.9350),  # Mae Rim town (route reference)
     "pongyang":     (18.9168, 98.8215),  # Pong Yang Jungle Coaster & Zipline
+    "maesa":        (18.9167, 98.9000),  # Mae Sa waterfall, Mae Rim
+    "botanic":      (18.8967, 98.8617),  # Queen Sirikit Botanic Garden
+    "moncham":      (18.9333, 98.8000),  # Mon Cham viewpoint
+
 
     # Koh Phangan
     "thongsala":    (9.7069, 99.9906),   # ferry pier / main town
