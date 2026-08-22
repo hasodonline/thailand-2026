@@ -10,6 +10,10 @@ Accuracy is the whole point of this module. Two things make it exact:
   * Pins are anchored to Google place IDs, so clicking one opens the real
     listing rather than a coordinate we typed in.
 
+Markers use AdvancedMarkerElement, which needs a Map ID registered in Cloud
+console — without one it renders nothing and logs no error, which is exactly
+how the first attempt failed. The ID lives in .map-id.
+
 Cost is bounded, not hoped for. The key is restricted to this site's referrer
 and to Maps JS alone, and the project carries a hard 300 map-loads/day quota —
 9,300/month against a 10,000 free allowance, so overspend is arithmetically
@@ -28,6 +32,7 @@ from routing import PLACES
 
 D = os.path.dirname(os.path.abspath(__file__))
 KEY = open(os.path.join(D, ".web-map-key")).read().strip()
+MAP_ID = open(os.path.join(D, ".map-id")).read().strip()
 
 # (place key, colour, title, subtitle) — colour groups sleeps vs activities
 PINS = [
@@ -58,8 +63,10 @@ def build():
     pins = []
     for key, colour, title, sub in PINS:
         lat, lon = PLACES[key]
-        pins.append({"lat": lat, "lng": lon, "color": colour, "title": title,
-                     "sub": sub, "pid": PIDS.get(key, {}).get("id", "")})
+        icon, _, label = title.partition(" ")
+        pins.append({"lat": lat, "lng": lon, "color": colour, "title": label,
+                     "icon": icon, "sub": sub,
+                     "pid": PIDS.get(key, {}).get("id", "")})
 
     routes = []
     for stops, name, colour, weight in ROUTES:
@@ -77,25 +84,25 @@ def build():
   const D = {data};
   window.initTMap = function(){{
     const map = new google.maps.Map(document.getElementById('tmap'), {{
-      center: {{lat: 18.94, lng: 98.99}}, zoom: 10,
+      center: {{lat: 18.94, lng: 98.99}}, zoom: 10, mapId: '{MAP_ID}',
       mapTypeControl: false, streetViewControl: false, fullscreenControl: true
     }});
     const info = new google.maps.InfoWindow();
+    const {{ AdvancedMarkerElement }} = google.maps.marker;
     D.pins.forEach(p => {{
-      const mk = new google.maps.Marker({{
-        map, position: {{lat: p.lat, lng: p.lng}}, title: p.title,
-        icon: {{
-          path: google.maps.SymbolPath.CIRCLE, scale: 9,
-          fillColor: p.color, fillOpacity: 1,
-          strokeColor: '#ffffff', strokeWeight: 3
-        }}
+      const dot = document.createElement('div');
+      dot.className = 'tpin';
+      dot.style.background = p.color;
+      dot.textContent = p.icon;
+      const mk = new AdvancedMarkerElement({{
+        map, position: {{lat: p.lat, lng: p.lng}}, title: p.title, content: dot
       }});
-      mk.addListener('click', () => {{
+      mk.addListener('gmp-click', () => {{
         const link = p.pid
           ? '<a href="https://www.google.com/maps/search/?api=1&query=' + p.lat + ',' + p.lng +
             '&query_place_id=' + p.pid + '" target="_blank" rel="noopener">פתח במפות Google ←</a>'
           : '';
-        info.setContent('<div class="tinfo"><b>' + p.title + '</b><br>' + p.sub + '<br>' + link + '</div>');
+        info.setContent('<div class="tinfo"><b>' + p.icon + ' ' + p.title + '</b><br>' + p.sub + '<br>' + link + '</div>');
         info.open(map, mk);
       }});
     }});
@@ -120,7 +127,7 @@ def build():
 }})();
 </script>
 <script async
-  src="https://maps.googleapis.com/maps/api/js?key={KEY}&libraries=geometry&callback=initTMap&loading=async&language=iw&region=TH"></script>'''
+  src="https://maps.googleapis.com/maps/api/js?key={KEY}&libraries=marker,geometry&callback=initTMap&loading=async&language=iw&region=TH"></script>'''
     out = os.path.join(D, "webmap.html")
     with open(out, "w", encoding="utf-8") as f:
         f.write(html)
