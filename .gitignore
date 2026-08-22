@@ -1,41 +1,33 @@
-# ─────────────────────────────────────────────────────────────
-#  מידע אישי — לעולם לא נכנס ל-git
-# ─────────────────────────────────────────────────────────────
 
-# כרטיסים ואישורים: מספרי דרכון (כולל של קטינים), מספרי כרטיסים
-# אלקטרוניים, 4 ספרות אחרונות של האשראי, תאריכי לידה.
-tickets/
-
-# מעקב ההזמנות: כל קודי ההזמנה, טלפונים, קישור לתשלום.
-# קוד הזמנה + שם משפחה = כניסה ל"ניהול הזמנה" בכל חברת תעופה.
-BOOKINGS.md
-
-# קודי ההזמנה ושם המשפחה שמוזרקים לבנייה הפרטית
-site/private-refs.json
-
-# מפתח Google Routes API — לעולם לא ל-git
-site/.maps-api-key
-site/.serpapi-key
-
-# מפתח המפה באתר — מוגבל ל-referrer ולMaps JS, ומכוסה בתקרה יומית.
-# הוא כן מופיע ב-docs/index.html בכוונה; זה הקובץ המקורי שלא נחוץ ב-git.
-site/.web-map-key
-site/.map-id
-site/polylines_cache.json
-site/hotels_cache.json
-site/routes_cache.json
-site/routes_cache_google.json
-site/gmatrix.json
-
-# הבנייה הפרטית של המדריך (מכילה את הקודים).
-# הגרסה הציבורית היא docs/index.html ונבנית עם: python3 site/build.py --public
-thailand-2026-guide.html
-
+__pycache__/
+.DS_Store
+**/__pycache__/
+**/.DS_Store
 # ─────────────────────────────────────────────────────────────
 #  זמניים
-# ─────────────────────────────────────────────────────────────
+# קודי ההזמנה ושם המשפחה שמוזרקים לבנייה הפרטית
+#  מידע אישי — לעולם לא נכנס ל-git
+# מפתח המפה באתר — מוגבל ל-referrer ולMaps JS, ומכוסה בתקרה יומית.
+# הבנייה הפרטית של המדריך (מכילה את הקודים).
+# הוא כן מופיע ב-docs/index.html בכוונה; זה הקובץ המקורי שלא נחוץ ב-git.
+# הגרסה הציבורית היא docs/index.html ונבנית עם: python3 site/build.py --public
+# קוד הזמנה + שם משפחה = כניסה ל"ניהול הזמנה" בכל חברת תעופה.
+# מעקב ההזמנות: כל קודי ההזמנה, טלפונים, קישור לתשלום.
+# כרטיסים ואישורים: מספרי דרכון (כולל של קטינים), מספרי כרטיסים
+# מפתח Google Routes API — לעולם לא ל-git
+# אלקטרוניים, 4 ספרות אחרונות של האשראי, תאריכי לידה.
+BOOKINGS.md
+docs/private.html
+site/.map-id
+site/.maps-api-key
+site/.serpapi-key
+site/.web-map-key
+site/gmatrix.json
+site/hotels_cache.json
+site/polylines_cache.json
+site/private-refs.json
+site/routes_cache_google.json
+site/routes_cache.json
 site/tilecache/
-.DS_Store
-**/.DS_Store
-__pycache__/
-**/__pycache__/
+thailand-2026-guide.html
+tickets/

@@ -1,0 +1,272 @@
+/* ============================================================
+   תאילנד 2026 — ספר הטיול
+   Design system. Mobile-first, RTL, dark-mode aware, printable.
+
+   The guide dropped its offline requirement, so this sheet is
+   free to assume a network: live maps, real image files, a
+   lightbox. What it must NOT assume is a screen — the print
+   block at the bottom is a first-class target, because the
+   family is printing this before they fly.
+   ============================================================ */
+
+:root{
+  --paper:#F7F5EE; --paper-2:#FFFFFF;
+  --ink:#1B241A; --ink-soft:#57604F; --ink-faint:#8A9184;
+  --line:#E2DDCC; --line-soft:#EFEBDE;
+
+  --jungle:#1E5C3F; --jungle-soft:#E6EFE6;
+  --sea:#12697A;    --sea-soft:#E0ECEE;
+  --chili:#A63B22;  --chili-soft:#F5E6DE;
+  --gold:#A87C1C;   --gold-soft:#F4EBD4;
+
+  --radius:16px; --radius-sm:10px;
+  --shadow:0 1px 2px rgba(27,36,26,.05), 0 10px 30px -14px rgba(27,36,26,.22);
+  --shadow-lg:0 2px 6px rgba(27,36,26,.07), 0 24px 60px -20px rgba(27,36,26,.3);
+  --maxw:760px; --maxw-wide:1080px;
+  --font:-apple-system,"Segoe UI",system-ui,"Helvetica Neue",Arial,"Noto Sans Hebrew","Arial Hebrew",sans-serif;
+}
+
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#141A15; --paper-2:#1C241D;
+    --ink:#ECE8DB; --ink-soft:#AAB2A4; --ink-faint:#7B8478;
+    --line:#2C3830; --line-soft:#232D26;
+    --jungle:#6FBF93; --jungle-soft:#1C2A22;
+    --sea:#5FB9C9;    --sea-soft:#16292D;
+    --chili:#E68C6C;  --chili-soft:#31201A;
+    --gold:#D9B965;   --gold-soft:#2C2616;
+    --shadow:0 1px 2px rgba(0,0,0,.5), 0 10px 30px -14px rgba(0,0,0,.7);
+    --shadow-lg:0 2px 6px rgba(0,0,0,.5), 0 24px 60px -20px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#141A15; --paper-2:#1C241D;
+  --ink:#ECE8DB; --ink-soft:#AAB2A4; --ink-faint:#7B8478;
+  --line:#2C3830; --line-soft:#232D26;
+  --jungle:#6FBF93; --jungle-soft:#1C2A22;
+  --sea:#5FB9C9;    --sea-soft:#16292D;
+  --chili:#E68C6C;  --chili-soft:#31201A;
+  --gold:#D9B965;   --gold-soft:#2C2616;
+  --shadow:0 1px 2px rgba(0,0,0,.5), 0 10px 30px -14px rgba(0,0,0,.7);
+  --shadow-lg:0 2px 6px rgba(0,0,0,.5), 0 24px 60px -20px rgba(0,0,0,.8);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; -webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto} *{animation:none!important; transition:none!important}
+}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--font); font-size:17px; line-height:1.72;
+  direction:rtl; text-align:right;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%; height:auto; display:block}
+a{color:var(--sea); text-underline-offset:3px}
+
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 20px}
+.wide{max-width:var(--maxw-wide); margin:0 auto; padding:0 20px}
+
+/* ---------------- hero ---------------- */
+.hero{position:relative; overflow:hidden; background:#101A13; color:#F4F1E6}
+.hero>img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.5}
+.hero .scrim{position:absolute; inset:0;
+  background:linear-gradient(180deg,rgba(10,18,13,.3),rgba(10,18,13,.6) 55%,rgba(10,18,13,.95))}
+.hero .inner{position:relative; max-width:var(--maxw); margin:0 auto; padding:88px 20px 44px}
+.hero h1{font-size:clamp(38px,8.5vw,68px); line-height:1.06; margin:12px 0 12px;
+  font-weight:800; letter-spacing:-.02em; text-wrap:balance}
+.hero .sub{font-size:clamp(17px,2.6vw,20px); color:#D5D1BF; max-width:32em; margin:0 0 26px}
+.kicker{font-size:12.5px; letter-spacing:.16em; font-weight:700; text-transform:uppercase; color:#E7C568}
+.facts{display:flex; flex-wrap:wrap; gap:9px; list-style:none; padding:0; margin:0}
+.facts li{border:1px solid rgba(240,235,215,.32); border-radius:999px;
+  padding:6px 14px; font-size:14px; font-weight:600}
+
+/* ---------------- sticky day nav ---------------- */
+.daynav{position:sticky; top:0; z-index:50; background:color-mix(in srgb,var(--paper) 92%,transparent);
+  backdrop-filter:saturate(1.4) blur(10px); border-bottom:1px solid var(--line)}
+.daynav .track{max-width:var(--maxw-wide); margin:0 auto; display:flex; gap:6px;
+  overflow-x:auto; padding:9px 14px; scrollbar-width:none; scroll-snap-type:x proximity}
+.daynav .track::-webkit-scrollbar{display:none}
+.daynav a{flex:0 0 auto; scroll-snap-align:center; text-decoration:none;
+  border:1px solid var(--line); border-radius:999px; padding:6px 13px;
+  font-size:13.5px; font-weight:700; color:var(--ink-soft); background:var(--paper-2);
+  white-space:nowrap; transition:.18s}
+.daynav a .d{color:var(--ink-faint); font-weight:600; margin-inline-start:5px; font-size:12.5px}
+.daynav a:hover{border-color:var(--jungle); color:var(--jungle)}
+.daynav a.on{background:var(--jungle); border-color:var(--jungle); color:#fff}
+.daynav a.on .d{color:rgba(255,255,255,.75)}
+
+/* ---------------- chapters & days ---------------- */
+.chapter{padding:64px 0 8px}
+.chapter-head{max-width:var(--maxw); margin:0 auto; padding:0 20px}
+.chapter-head .eyebrow{display:flex; flex-wrap:wrap; gap:10px; align-items:baseline;
+  font-size:13px; font-weight:700; letter-spacing:.06em; color:var(--ink-faint); text-transform:uppercase}
+.chapter-head .eyebrow .n{color:var(--chili)}
+.chapter-head h2{font-size:clamp(29px,5.4vw,44px); line-height:1.14; margin:.32em 0 .3em;
+  font-weight:800; letter-spacing:-.02em; text-wrap:balance}
+.chapter-head .lead{font-size:clamp(17px,2.3vw,19.5px); color:var(--ink-soft); margin:0}
+
+.day{max-width:var(--maxw); margin:0 auto; padding:34px 20px 6px; scroll-margin-top:64px}
+.day-head{display:flex; flex-wrap:wrap; gap:8px 12px; align-items:baseline; margin-bottom:6px}
+.day-head .date{font-size:13px; font-weight:800; letter-spacing:.09em; text-transform:uppercase;
+  color:#fff; background:var(--jungle); border-radius:999px; padding:4px 12px}
+.day-head .drive{font-size:13px; font-weight:700; color:var(--ink-faint)}
+.day-head .sleep{font-size:13px; font-weight:700; color:var(--chili);
+  background:var(--chili-soft); border-radius:999px; padding:4px 11px; margin-inline-start:auto}
+.day h3{font-size:clamp(23px,4vw,31px); line-height:1.2; margin:.15em 0 .35em;
+  font-weight:800; letter-spacing:-.015em; text-wrap:balance}
+.day .intro{font-size:17.5px; color:var(--ink-soft); margin:0 0 20px}
+
+/* ---------------- schedule ---------------- */
+.sched{border:1px solid var(--line); border-radius:var(--radius); overflow:hidden;
+  background:var(--paper-2); margin:22px 0}
+.sched .row{display:grid; grid-template-columns:76px 1fr; gap:0;
+  border-bottom:1px solid var(--line-soft)}
+.sched .row:last-child{border-bottom:0}
+.sched .t{padding:13px 14px; font-variant-numeric:tabular-nums; font-weight:800;
+  font-size:15px; color:var(--jungle); background:var(--jungle-soft);
+  border-inline-end:1px solid var(--line-soft)}
+.sched .t.soft{color:var(--ink-faint); background:transparent; font-weight:600}
+.sched .w{padding:13px 15px}
+.sched .w b{font-weight:750}
+.sched .w .meta{display:block; font-size:14px; color:var(--ink-faint); margin-top:2px}
+.sched .w .warn{display:block; font-size:14.5px; color:var(--chili); font-weight:650; margin-top:4px}
+
+/* ---------------- callouts ---------------- */
+.note{border-radius:var(--radius); padding:15px 17px; margin:20px 0;
+  border:1px solid var(--line); background:var(--paper-2); font-size:16px}
+.note b{display:block; font-size:16.5px; margin-bottom:3px; font-weight:750}
+.note.warn{background:var(--chili-soft); border-color:transparent}
+.note.warn b{color:var(--chili)}
+.note.tip{background:var(--sea-soft); border-color:transparent}
+.note.tip b{color:var(--sea)}
+.note.gold{background:var(--gold-soft); border-color:transparent}
+.note.gold b{color:var(--gold)}
+.note p{margin:.4em 0 0}
+.note :last-child{margin-bottom:0}
+
+/* ---------------- photos ---------------- */
+figure{margin:24px 0}
+figure img{border-radius:var(--radius); box-shadow:var(--shadow); width:100%}
+figcaption{font-size:14.5px; color:var(--ink-faint); margin-top:9px; line-height:1.55}
+
+.gallery{display:grid; gap:10px; margin:24px 0;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.gallery.two{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.gallery button{padding:0; border:0; background:none; cursor:zoom-in; border-radius:var(--radius-sm);
+  overflow:hidden; display:block; position:relative}
+.gallery img{border-radius:var(--radius-sm); aspect-ratio:4/3; object-fit:cover;
+  box-shadow:var(--shadow); transition:transform .3s}
+.gallery button:hover img{transform:scale(1.035)}
+.gallery .cap{position:absolute; inset-inline:0; bottom:0; padding:22px 10px 8px;
+  font-size:13px; font-weight:650; color:#fff; text-align:start;
+  background:linear-gradient(transparent,rgba(8,14,10,.82)); border-radius:0 0 var(--radius-sm) var(--radius-sm)}
+
+dialog.lb{border:0; padding:0; background:transparent; max-width:100vw; max-height:100vh; overflow:visible}
+dialog.lb::backdrop{background:rgba(8,12,9,.93)}
+dialog.lb img{max-width:94vw; max-height:82vh; width:auto; border-radius:10px; margin:0 auto}
+dialog.lb .cap{color:#E9E5D8; text-align:center; font-size:15px; padding:12px 20px; max-width:44em; margin:0 auto}
+dialog.lb .x{position:fixed; top:14px; inset-inline-end:16px; width:42px; height:42px; border-radius:50%;
+  border:0; background:rgba(255,255,255,.14); color:#fff; font-size:22px; cursor:pointer; line-height:1}
+
+/* ---------------- maps ---------------- */
+.mapbox{margin:24px 0; border-radius:var(--radius); overflow:hidden;
+  border:1px solid var(--line); background:var(--paper-2); box-shadow:var(--shadow)}
+.mapbox iframe{display:block; width:100%; height:clamp(300px,52vw,440px); border:0}
+.mapbox .cap{padding:11px 15px; font-size:14.5px; color:var(--ink-faint); border-top:1px solid var(--line-soft)}
+.mapbox .cap a{font-weight:650}
+
+/* the rich JS map (make_webmap.py) — its own markup, styled here */
+.livemap{margin:22px 0}
+#tmap{width:100%; height:clamp(340px,58vw,520px); border-radius:var(--radius);
+  border:1px solid var(--line); box-shadow:var(--shadow); background:var(--line-soft)}
+.maplegend{display:flex; flex-wrap:wrap; gap:7px; margin-top:11px}
+.mapchip{display:inline-flex; align-items:center; gap:7px; cursor:pointer;
+  border:1px solid var(--line); background:var(--paper-2); color:var(--ink);
+  border-radius:999px; padding:6px 12px; font:inherit; font-size:13.5px; font-weight:650}
+.mapchip i{width:11px; height:11px; border-radius:50%; display:inline-block; flex:0 0 auto}
+.mapchip span{color:var(--ink-faint); font-weight:600; font-size:12.5px}
+.mapchip.off{opacity:.42; text-decoration:line-through}
+.tpin{display:flex; align-items:center; justify-content:center; width:30px; height:30px;
+  border-radius:50%; font-size:15px; box-shadow:0 2px 7px rgba(0,0,0,.35);
+  border:2px solid #fff; cursor:pointer}
+.tinfo{font-family:var(--font); direction:rtl; text-align:right; font-size:14px;
+  line-height:1.6; color:#20291F; max-width:16em}
+.tinfo b{font-size:15px}
+
+.navlinks{display:flex; flex-wrap:wrap; gap:8px; margin:18px 0}
+.navlinks a{text-decoration:none; font-size:14.5px; font-weight:650; padding:7px 13px;
+  border-radius:999px; border:1px solid var(--line); background:var(--paper-2); color:var(--ink)}
+.navlinks a:hover{border-color:var(--sea); color:var(--sea)}
+
+/* ---------------- stay cards ---------------- */
+.stay{border:1px solid var(--line); border-radius:var(--radius); background:var(--paper-2);
+  padding:16px 18px; margin:20px 0; box-shadow:var(--shadow)}
+.stay h4{margin:0 0 4px; font-size:19px; font-weight:800}
+.stay .when{font-size:13.5px; font-weight:700; color:var(--chili); letter-spacing:.04em; text-transform:uppercase}
+.stay p{margin:.5em 0 0; color:var(--ink-soft); font-size:16px}
+.stay .ref{margin-top:10px; padding-top:10px; border-top:1px solid var(--line-soft);
+  font-size:14px; color:var(--ink-faint); font-variant-numeric:tabular-nums}
+.pill{display:inline-block; font-size:12.5px; font-weight:750; border-radius:999px;
+  padding:3px 10px; vertical-align:middle; margin-inline-start:6px}
+.pill.paid{background:var(--jungle-soft); color:var(--jungle)}
+.pill.todo{background:var(--gold-soft); color:var(--gold)}
+
+/* ---------------- misc ---------------- */
+.tbl{overflow-x:auto; margin:22px 0; border:1px solid var(--line);
+  border-radius:var(--radius); background:var(--paper-2)}
+.tbl table{border-collapse:collapse; width:100%; font-size:15.5px; min-width:460px}
+.tbl th,.tbl td{padding:10px 13px; text-align:right; border-bottom:1px solid var(--line-soft)}
+.tbl th{background:var(--jungle-soft); color:var(--jungle); font-weight:750; font-size:14px;
+  position:sticky; top:0}
+.tbl tr:last-child td{border-bottom:0}
+.tbl td.num{font-variant-numeric:tabular-nums; white-space:nowrap; color:var(--ink-soft)}
+
+hr.rule{border:0; border-top:1px solid var(--line); margin:52px auto; max-width:var(--maxw)}
+
+footer.end{margin-top:60px; padding:34px 20px 46px; border-top:1px solid var(--line);
+  color:var(--ink-faint); font-size:14.5px; text-align:center}
+
+.themetoggle{position:fixed; bottom:16px; inset-inline-start:16px; z-index:60;
+  width:42px; height:42px; border-radius:50%; border:1px solid var(--line);
+  background:var(--paper-2); color:var(--ink); cursor:pointer; font-size:17px;
+  box-shadow:var(--shadow); line-height:1}
+
+/* ---------------- print ---------------- */
+@media print{
+  :root{--paper:#fff; --paper-2:#fff; --ink:#000; --ink-soft:#333; --ink-faint:#555;
+        --line:#bbb; --line-soft:#ddd; --shadow:none; --shadow-lg:none}
+  body{font-size:11.5pt; line-height:1.55; background:#fff}
+  .daynav,.themetoggle,dialog.lb,.navlinks{display:none!important}
+  .hero{background:#fff; color:#000; min-height:0}
+  .hero>img,.hero .scrim{display:none}
+  .hero .inner{padding:0 0 18px}
+  .hero h1{font-size:30pt; color:#000}
+  .hero .sub{color:#333}
+  .kicker{color:#7a5b12}
+  .facts li{border-color:#999; color:#000}
+  .chapter{padding-top:0; break-before:page}
+  .chapter:first-of-type{break-before:auto}
+  .day{break-inside:avoid-page; padding-top:16px}
+  .day-head .date{background:#eee!important; color:#000!important;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact}
+  .sched,.note,.stay,.tbl,figure,.mapbox,.overviewmap{break-inside:avoid}
+  .day-head .sleep{background:#eee!important; color:#000!important;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact}
+  .sched .t{background:#f4f4f4!important; color:#000!important;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact}
+  .note{border:1px solid #999!important; background:#fafafa!important;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact}
+  .gallery{grid-template-columns:repeat(3,1fr)}
+  .gallery .cap{position:static; background:none; color:#333; padding:4px 0}
+  /* live maps are blank on paper — the build swaps in a static image */
+  .mapbox iframe{display:none}
+  .mapbox img.printmap{display:block!important}
+  #tmap,.maplegend{display:none!important}
+  .overviewmap img.printmap{display:block!important; border:1px solid #bbb; border-radius:6px}
+  .mapbox:not(:has(img.printmap)){display:none}
+  a[href^="http"]::after{content:""}
+  footer.end{border-top:1px solid #bbb}
+}
+.mapbox img.printmap{display:none}

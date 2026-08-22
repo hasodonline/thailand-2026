@@ -1,456 +1,92 @@
-<title>תאילנד 2026 · המדריך המשפחתי המלא</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-  :root{
-    --paper:#F7F5EE; --ink:#20291F; --ink-soft:#4C554A; --line:#DDD8C8;
-    --jungle:#1E5C3F; --jungle-soft:#E4EDE2;
-    --sea:#136B7A; --sea-soft:#DFEcec;
-    --chili:#A63B22; --chili-soft:#F3E4DC;
-    --gold:#B98A24; --gold-soft:#F1E8D2;
-    --card:#FFFFFF; --shadow:0 1px 2px rgba(32,41,31,.06),0 8px 28px -12px rgba(32,41,31,.18);
-  }
-  @media (prefers-color-scheme: dark){
-    :root{
-      --paper:#161D17; --ink:#EAE7DA; --ink-soft:#A8B0A2; --line:#2E3830;
-      --jungle:#6FBF93; --jungle-soft:#1E2C24;
-      --sea:#5FB9C9; --sea-soft:#182B2E;
-      --chili:#E08A6E; --chili-soft:#33211B;
-      --gold:#D9B965; --gold-soft:#2E2817;
-      --card:#1E2620; --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px -12px rgba(0,0,0,.55);
-    }
-  }
-  :root[data-theme="light"]{
-    --paper:#F7F5EE; --ink:#20291F; --ink-soft:#4C554A; --line:#DDD8C8;
-    --jungle:#1E5C3F; --jungle-soft:#E4EDE2;
-    --sea:#136B7A; --sea-soft:#DFEcec;
-    --chili:#A63B22; --chili-soft:#F3E4DC;
-    --gold:#B98A24; --gold-soft:#F1E8D2;
-    --card:#FFFFFF; --shadow:0 1px 2px rgba(32,41,31,.06),0 8px 28px -12px rgba(32,41,31,.18);
-  }
-  :root[data-theme="dark"]{
-    --paper:#161D17; --ink:#EAE7DA; --ink-soft:#A8B0A2; --line:#2E3830;
-    --jungle:#6FBF93; --jungle-soft:#1E2C24;
-    --sea:#5FB9C9; --sea-soft:#182B2E;
-    --chili:#E08A6E; --chili-soft:#33211B;
-    --gold:#D9B965; --gold-soft:#2E2817;
-    --card:#1E2620; --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px -12px rgba(0,0,0,.55);
-  }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{animation:none!important;transition:none!important} }
-  body{
-    margin:0; background:var(--paper); color:var(--ink);
-    font-family:-apple-system,"Segoe UI","Helvetica Neue",Arial,"Arial Hebrew","Noto Sans Hebrew",sans-serif;
-    line-height:1.7; font-size:17px;
-    direction:rtl; text-align:right;
-  }
-  .wrap{max-width:820px; margin:0 auto; padding:0 20px}
-  .wide{max-width:1060px; margin:0 auto; padding:0 20px}
-
-  /* ---------- hero ---------- */
-  header.hero{position:relative; overflow:hidden; color:#F5F2E8; background:#14261C}
-  header.hero img.bg{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.52}
-  header.hero .scrim{position:absolute; inset:0; background:linear-gradient(180deg,rgba(12,22,16,.25) 0%,rgba(12,22,16,.55) 55%,rgba(12,22,16,.92) 100%)}
-  header.hero .inner{position:relative; padding:96px 20px 56px; max-width:820px; margin:0 auto}
-  .kicker{font-size:13px; letter-spacing:.14em; font-weight:700; text-transform:uppercase}
-  header.hero .kicker{color:#E7C568}
-  header.hero h1{font-size:clamp(40px,7vw,72px); line-height:1.08; margin:14px 0 10px; font-weight:800; text-wrap:balance}
-  header.hero p.sub{font-size:clamp(17px,2.4vw,21px); max-width:34em; color:#D8D4C4; margin:0 0 30px}
-  .hero-facts{display:flex; flex-wrap:wrap; gap:10px}
-  .hero-facts span{border:1px solid rgba(240,235,215,.35); border-radius:999px; padding:6px 14px; font-size:14px; font-weight:600; backdrop-filter:blur(2px)}
-
-  /* ---------- nav ---------- */
-  nav.toc{position:sticky; top:0; z-index:50; background:var(--paper); border-bottom:1px solid var(--line)}
-  nav.toc .row{display:flex; gap:2px; overflow-x:auto; padding:0 12px; max-width:1060px; margin:0 auto}
-  nav.toc a{flex:0 0 auto; padding:12px 13px; font-size:14.5px; font-weight:700; color:var(--ink-soft); text-decoration:none; border-bottom:3px solid transparent}
-  nav.toc a:hover,nav.toc a:focus-visible{color:var(--ink)}
-  nav.toc a:focus-visible{outline:2px solid var(--gold); outline-offset:-2px}
-  nav.toc a.c-flight{border-color:transparent} nav.toc a.c-flight:hover{border-color:var(--gold)}
-  nav.toc a.c-north:hover{border-color:var(--jungle)}
-  nav.toc a.c-sea:hover{border-color:var(--sea)}
-  nav.toc a.c-bkk:hover{border-color:var(--chili)}
-
-  /* ---------- sections ---------- */
-  section{padding:64px 0 24px}
-  .eyebrow{display:flex; align-items:center; gap:12px; margin-bottom:10px}
-  .eyebrow .num{font-variant-numeric:tabular-nums; font-weight:800; font-size:13px; letter-spacing:.1em; color:#fff; border-radius:6px; padding:3px 10px}
-  .eyebrow .dates{font-size:13.5px; font-weight:700; color:var(--ink-soft); letter-spacing:.06em}
-  h2{font-size:clamp(30px,4.6vw,44px); line-height:1.15; margin:0 0 8px; font-weight:800; text-wrap:balance}
-  h3{font-size:22px; margin:34px 0 8px; font-weight:800; text-wrap:balance}
-  h4{font-size:17.5px; margin:20px 0 6px; font-weight:800}
-  p{margin:0 0 14px; max-width:46em}
-  .lead{font-size:19.5px; color:var(--ink-soft); max-width:38em}
-  ul{padding-right:22px; margin:0 0 16px; max-width:44em}
-  li{margin-bottom:7px}
-  li::marker{color:var(--gold); font-weight:700}
-  strong{font-weight:800}
-  a{color:var(--sea); text-decoration-thickness:1px; text-underline-offset:3px}
-  a:focus-visible{outline:2px solid var(--gold); outline-offset:2px; border-radius:2px}
-
-  /* chapter color coding */
-  .ch-north .eyebrow .num{background:var(--jungle)} .ch-north h2{color:var(--jungle)}
-  .ch-sea .eyebrow .num{background:var(--sea)} .ch-sea h2{color:var(--sea)}
-  .ch-bkk .eyebrow .num{background:var(--chili)} .ch-bkk h2{color:var(--chili)}
-  .ch-gold .eyebrow .num{background:var(--gold)} .ch-gold h2{color:var(--gold)}
-
-  /* ---------- figures ---------- */
-  figure{margin:26px 0}
-  figure img{width:100%; height:auto; display:block; border-radius:14px; box-shadow:var(--shadow)}
-  figcaption{font-size:13.5px; color:var(--ink-soft); padding:8px 4px 0}
-  .duo{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:26px 0}
-  .duo figure{margin:0}
-  .duo img{aspect-ratio:4/3; object-fit:cover}
-  @media (max-width:640px){ .duo{grid-template-columns:1fr} }
-
-  /* ---------- cards ---------- */
-  .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px; margin:22px 0}
-  .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 18px 14px; box-shadow:var(--shadow)}
-  .card h4{margin:0 0 6px; font-size:16.5px}
-  .card p{font-size:14.8px; margin:0 0 8px; color:var(--ink-soft)}
-  .card .meta{font-size:13px; font-weight:700; color:var(--gold); letter-spacing:.02em}
-  .pill{display:inline-block; font-size:12.5px; font-weight:800; border-radius:999px; padding:2px 11px; margin-inline-start:6px; vertical-align:2px}
-  .pill.must{background:var(--gold-soft); color:var(--gold)}
-  .pill.fun{background:var(--jungle-soft); color:var(--jungle)}
-  .pill.rain{background:var(--sea-soft); color:var(--sea)}
-
-  /* ---------- callouts ---------- */
-  .note{border-radius:14px; padding:18px 20px; margin:22px 0; font-size:15.5px; border:1px solid var(--line); background:var(--card); max-width:46em}
-  .note b:first-child{display:block; margin-bottom:4px; font-size:14px; letter-spacing:.08em}
-  .note.warn{border-inline-start:5px solid var(--chili)} .note.warn b:first-child{color:var(--chili)}
-  .note.tip{border-inline-start:5px solid var(--jungle)} .note.tip b:first-child{color:var(--jungle)}
-  .note.gold{border-inline-start:5px solid var(--gold)} .note.gold b:first-child{color:var(--gold)}
-
-  /* ---------- tables ---------- */
-  .tbl{overflow-x:auto; margin:20px 0; border:1px solid var(--line); border-radius:14px; background:var(--card); box-shadow:var(--shadow)}
-  table{border-collapse:collapse; width:100%; min-width:560px; font-size:14.8px}
-  th{background:var(--jungle-soft); color:var(--ink); text-align:right; padding:11px 14px; font-size:13.5px; letter-spacing:.04em}
-  td{padding:10px 14px; border-top:1px solid var(--line); vertical-align:top}
-  td .day{font-weight:800; white-space:nowrap}
-  td .wd{color:var(--ink-soft); font-size:13px; display:block}
-  .num-cell{font-variant-numeric:tabular-nums; white-space:nowrap}
-
-  /* ---------- route diagram ---------- */
-  .route{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:26px 22px; margin:26px 0; box-shadow:var(--shadow)}
-  .route svg{width:100%; height:auto; display:block}
-  .route .cap{font-size:13.5px; color:var(--ink-soft); margin-top:10px}
-
-  /* ---------- timeline strip ---------- */
-  .strip{display:grid; grid-template-columns:repeat(17,1fr); gap:4px; margin:26px 0 8px}
-  .strip div{height:46px; border-radius:8px; position:relative; font-size:11px; font-weight:800; color:#fff; display:flex; align-items:flex-end; padding:4px 6px}
-  .strip .n{background:var(--jungle)} .strip .s{background:var(--sea)} .strip .b{background:var(--chili)} .strip .f{background:var(--gold)}
-  .strip-legend{display:flex; flex-wrap:wrap; gap:16px; font-size:13.5px; color:var(--ink-soft); margin-bottom:8px}
-  .strip-legend i{display:inline-block; width:12px; height:12px; border-radius:3px; margin-inline-end:6px; vertical-align:-1px}
-  @media (max-width:640px){ .strip{display:none} }
-
-  .mapslinks{display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 6px}
-  .mapslinks a{font-size:13.5px; font-weight:700; text-decoration:none; border:1px solid var(--line); background:var(--card); border-radius:999px; padding:6px 13px; color:var(--ink)}
-  .mapslinks a:hover{border-color:var(--gold); color:var(--gold)}
-  .mapslinks a::before{content:"📍 "; font-size:12px}
-
-
-  .maprow{display:grid; grid-template-columns:minmax(0,1fr) minmax(230px,.9fr); gap:22px; align-items:start}
-  .maprow img{width:100%; height:auto; border-radius:10px; border:1px solid var(--line)}
-  .maplegend h4{margin:4px 0 10px}
-  .maplegend ol{padding-right:20px; margin:0 0 12px; font-size:15px}
-  .maplegend li{margin-bottom:8px}
-  .maplegend li::marker{font-weight:800; color:var(--gold)}
-  .maplegend p{font-size:13.5px; color:var(--ink-soft)}
-  @media (max-width:700px){ .maprow{grid-template-columns:1fr} }
-  .mapfig{margin:26px 0}
-  .mapfig img{width:100%; height:auto; border-radius:12px; border:1px solid var(--line); box-shadow:var(--shadow)}
-  .mapfig figcaption{font-size:13.5px; color:var(--ink-soft); padding:8px 4px 0}
-
-  /* optional-stops boxes */
-  .opt{border:2px dashed var(--gold); background:transparent; border-radius:14px; padding:16px 20px; margin:20px 0; font-size:15px; max-width:46em}
-  .opt>b:first-child{display:block; margin-bottom:8px; font-size:13.5px; letter-spacing:.08em; color:var(--gold)}
-  .opt ul{margin:0; padding-right:20px}
-  .opt li{margin-bottom:9px}
-  .opt .m{color:var(--ink-soft); font-size:13.5px}
-  footer{padding:56px 0 72px; border-top:1px solid var(--line); margin-top:64px}
-  footer p{font-size:14px; color:var(--ink-soft)}
-  hr.sep{border:none; border-top:1px solid var(--line); margin:56px 0 0}
-
-/* ── המפה האינטראקטיבית ── */
-.livemap{margin:18px 0}
-#tmap{width:100%;aspect-ratio:4/3;max-height:76vh;border-radius:14px;background:#eceae4}
-@media(max-width:640px){#tmap{aspect-ratio:3/4}}
-.tpin{width:30px;height:30px;border-radius:50%;border:3px solid #fff;
-      box-shadow:0 2px 7px rgba(0,0,0,.42);cursor:pointer;
-      display:flex;align-items:center;justify-content:center;
-      font-size:15px;line-height:1;transition:transform .12s}
-.tpin:hover{transform:scale(1.18)}
-.tinfo{font-family:inherit;direction:rtl;text-align:right;font-size:14.5px;line-height:1.65;min-width:190px}
-.tinfo a{color:var(--teal);font-weight:600;text-decoration:none}
-.maplegend{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.mapchip{display:inline-flex;align-items:center;gap:7px;border:1.5px solid #d8d2c6;
-         background:#fff;border-radius:999px;padding:7px 14px;font:inherit;font-size:13.5px;
-         cursor:pointer;color:var(--ink);transition:opacity .15s,background .15s}
-.mapchip i{width:13px;height:13px;border-radius:3px;flex:none}
-.mapchip span{color:var(--ink-soft);font-size:12.5px}
-.mapchip:hover{background:#faf8f4}
-.mapchip.off{opacity:.4;background:#f2efe9}
-</style>
-
 <header class="hero">
-  <img class="bg" src="{{IMG:thong-nai-pan}}" alt="">
+  <img src="{{IMG:elephant}}" alt="פילים בנהר בצפון תאילנד">
   <div class="scrim"></div>
   <div class="inner">
-    <div class="kicker">{{FAM}} · 7 נוסעים · 17.9 – 6.10.2026</div>
-    <h1>תאילנד שלנו:<br>מההרים של הצפון אל הים של קופנגן</h1>
-    <p class="sub">15 לילות בתאילנד, שלושה פרקים: שבוע של הרפתקאות בצפון — <strong>כולל שני לילות בג׳ונגל שהפילים באים בהם לבקתה</strong> — חמישה ימי חוף בקופנגן, ושלושה ימים בבנגקוק עם ספארי ושוק צף. ובדרך: שתי לינות בקפריסין ויום בדובאי.</p>
-    <div class="hero-facts">
-      <span>✈️ הטיסות מוזמנות</span>
-      <span>🇨🇾 2 לילות בלרנקה</span>
-      <span>🐘 לישון עם פילים</span>
-      <span>🏝️ 5 לילות בקופנגן</span>
-      <span>🛶 השוק הצף בשבת 3.10</span>
-    </div>
+    <div class="kicker">17 בספטמבר – 6 באוקטובר 2026</div>
+    <h1>תאילנד</h1>
+    <p class="sub">שלושה שבועות, שבעה אנשים, שלושה עולמות: הרים וג׳ונגל בצפון, מפרץ טורקיז באי, ועיר אחת ענקית לסיום.</p>
+    <ul class="facts">
+      <li>🐘 שני לילות עם פילים</li>
+      <li>🎢 28 קווי אומגה</li>
+      <li>🚣 ראפטינג בנהר</li>
+      <li>💦 מפל שמטפסים עליו</li>
+      <li>🏝️ 5 ימים בקופנגן</li>
+      <li>🛶 שוק צף</li>
+    </ul>
   </div>
 </header>
 
-<nav class="toc" aria-label="פרקי המדריך">
-  <div class="row">
-    <a class="c-flight" href="#overview">המסלול</a>
-    <a class="c-flight" href="#flights">הכרטיסים</a>
-    <a class="c-flight" href="#theway">הדרך</a>
-    <a class="c-north" href="#chiangrai">הצפון</a>
-    <a class="c-sea" href="#phangan">קופנגן</a>
-    <a class="c-bkk" href="#bangkok">בנגקוק</a>
-    <a class="c-flight" href="#daybyday">יום-אחר-יום</a>
-    <a class="c-flight" href="#budget">תקציב</a>
-    <a class="c-flight" href="#tips">טיפים</a>
+{{DAYNAV}}
+
+<section class="chapter" id="ch-way">
+  <div class="chapter-head">
+    <div class="eyebrow"><span class="n">פרק 1</span><span>17–19.9 · שלושה ימים בדרך</span></div>
+    <h2>הדרך לשם</h2>
+    <p class="lead">הטיסה לתאילנד עוברת דרך שתי עצירות, ובמקום להילחם בהן הפכנו אותן לחלק מהטיול: לילה על חוף בקפריסין, ובוקר בים לפני שממשיכים.</p>
   </div>
-</nav>
 
-<section id="overview" class="ch-gold">
-  <div class="wrap">
-    <div class="eyebrow"><span class="num">המסלול</span><span class="dates">19 ימים מדלת לדלת · 15 לילות בתאילנד</span></div>
-    <h2>שלושה עולמות בטיול אחד</h2>
-    <p class="lead">הלוגיקה של המסלול פשוטה: מתחילים בצפון כשאתם טריים (זה החלק הפעיל), יורדים לאי כשמגיע הזמן לנוח, ומסיימים בבנגקוק — כך שהשוק הצף נופל בדיוק על שבת, היום המושלם עבורו.</p>
-
-    <div class="strip-legend">
-      <span><i style="background:var(--gold)"></i>הדרך (קפריסין · דובאי)</span>
-      <span><i style="background:var(--jungle)"></i>צפון תאילנד (7 לילות)</span>
-      <span><i style="background:var(--sea)"></i>קופנגן (5 לילות)</span>
-      <span><i style="background:var(--chili)"></i>בנגקוק (3 לילות)</span>
+  <article class="day" id="d-0917">
+    <div class="day-head">
+      <span class="date">חמישי 17.9</span>
+      <span class="drive">תל אביב ← לרנקה</span>
+      <span class="sleep">🛏️ לרנקה</span>
     </div>
-    <div class="strip" aria-hidden="true">
-      <div class="f">17.9</div><div class="f">18</div><div class="n">19</div><div class="n">20</div><div class="n">21</div><div class="n">22</div><div class="n">23</div><div class="n">24</div><div class="n">25</div><div class="s">26</div><div class="s">27</div><div class="s">28</div><div class="s">29</div><div class="s">30</div><div class="b">1.10</div><div class="b">2</div><div class="b">3</div><div class="f">4</div><div class="f">5–6</div>
-    </div>
+    <h3>יוצאים לדרך</h3>
+    <p class="intro">טיסה קצרה של שעה ורבע, ואתם על חוף הים במקום בשדה תעופה.</p>
 
-    <div class="route">
-      <div class="maprow">
-        <img src="{{MAP:map-thailand}}" alt="מפת תאילנד עם מסלול הטיול" loading="lazy">
-        <div class="maplegend">
-          <h4>המסלול על המפה</h4>
-          <ol>
-            <li><b>צ׳יאנג מאי + הג׳ונגל</b> — בסיס אחד, הרפתקאות · 7 לילות (19–26.9)</li>
-            <li><b>קופנגן</b> — טיסה ישירה + מעבורת · 5 לילות (26.9–1.10)</li>
-            <li><b>בנגקוק</b> — ספארי, שוק צף · 3 לילות (1–4.10)</li>
-          </ol>
-          <p>קו זהב מקווקו = טיסות פנים · קו טורקיז = מעבורת. <strong>רק שלוש תחנות בכל הטיול</strong> — פורקים מזוודות שלוש פעמים בלבד, וכל שאר הנסיעות הן טיולי יום קצרים.</p>
-        </div>
-      </div>
-    </div>
-
-    <h3>למה דווקא הסדר הזה?</h3>
-    <ul>
-      <li><strong>שלוש תחנות בלבד לכל הטיול:</strong> צ׳יאנג מאי (עם קפיצה של יומיים לג׳ונגל), קופנגן, בנגקוק. פורקים מזוודות שלוש פעמים — כל השאר הם טיולי יום קצרים מהבסיס.</li>
-      <li><strong>הימים נופלים נכון:</strong> שוק יום ראשון של צ׳יאנג מאי — הטוב בצפון — נופל על היום השני שלכם (20.9). השוק הצף ושוק הרכבת בבנגקוק נופלים על שבת 3.10, וצ׳טוצ׳ק פתוח ביום האחרון.</li>
-      <li><strong>מסיבת הפול-מון בקופנגן היא ב-26.9</strong> — אתם מגיעים לאי ב-28.9, יומיים אחריה: האי ריק, שקט וזול יותר. תזמון מושלם למשפחה.</li>
-      <li><strong>ספטמבר בצפון = סוף עונת הגשמים:</strong> הכל ירוק זוהר, המפלים בשיא עוצמתם, טרסות האורז מלאות. הגשם יורד בעיקר אחר הצהריים — לכן כל יום בנוי כך שהטבע בבוקר והשווקים בערב.</li>
-      <li><strong>הנהיגה שמורה לצפון בלבד</strong> — שם היא כיף אמיתי (הרים, כפרים, עצירות ספונטניות). בבנגקוק ובאי עדיף נהג/מעבורת.</li>
-    </ul>
-
-    <div class="note tip">
-      <b>העיקרון שמחזיק את כל הטיול: שיא אחד ביום</b>
-      תכננו הרבה, אבל בקצב נכון: בכל יום יש דבר גדול אחד (מפל, פילים, ראפטינג, שוק), ולידו בריכה, חוף או ערב חופשי. כל מה שמסומן "אופציה" הוא באמת אופציה — אם בא לכם יום של כלום, מוותרים בלי ייסורי מצפון. הטיול בנוי כך שגם אם תעשו רק את ה"חובה", הוא יהיה מושלם.
+    <div class="sched">
+      <div class="row"><div class="t">16:35</div><div class="w"><b>ארקיע ✈️ תל אביב → לרנקה</b><span class="meta">אישור {{REF:arkia}} · נחיתה 17:50</span></div></div>
+      <div class="row"><div class="t">18:30</div><div class="w"><b>מונית למלון</b><span class="meta">15 דקות מהשדה</span></div></div>
+      <div class="row"><div class="t soft">ערב</div><div class="w"><b>ארוחת ערב על הטיילת</b><span class="meta">פיניקודס — טברנות ודוכנים לאורך החוף, הכל במרחק הליכה</span></div></div>
     </div>
 
     <div class="note warn">
-      <b>שימו לב ללוח החגים</b>
-      <strong>יום כיפור חל ביום שני 21.9</strong> — יום האומגות והראפטינג. אם תעדיפו יום שקט, פשוט החליפו אותו עם יום הפילים (22.9) או עם המפל הדביק (25.9); שום דבר אחר במסלול לא זז. <strong>סוכות נכנס בערב שבת 26.9</strong> — בדיוק הערב הראשון שלכם על החוף בקופנגן.
+      <b>⚠️ הכבודה בקטע הזה נפרדת</b>
+      ארקיע ו-flydubai הן שתי הזמנות שונות, כך שהמזוודות <strong>לא עוברות ישירות</strong>. בלרנקה אוספים אותן ועושים צ׳ק-אין מחדש.
     </div>
-  </div>
+  </article>
+
+  <article class="day" id="d-0918">
+    <div class="day-head">
+      <span class="date">שישי 18.9</span>
+      <span class="drive">לרנקה ← דובאי</span>
+      <span class="sleep">✈️ לילה באוויר</span>
+    </div>
+    <h3>בוקר בים, ואז מזרחה</h3>
+    <p class="intro">הטיסה לדובאי יוצאת רק ב-21:00, אז יש לכם יום שלם בקפריסין — וזה החלק הכי נעים בכל מסע ההגעה.</p>
+
+    <div class="sched">
+      <div class="row"><div class="t soft">בוקר</div><div class="w"><b>🌊 שחייה בים ליד המלון</b><span class="meta">המים בספטמבר עדיין 27° — חמים יותר מהים בישראל</span></div></div>
+      <div class="row"><div class="t">12:00</div><div class="w"><b>צ׳ק-אאוט · המזוודות נשארות בקבלה</b></div></div>
+      <div class="row"><div class="t soft">אחה״צ</div><div class="w"><b>מצודת לרנקה והשוק העתיק</b><span class="meta">10 דקות הליכה מהטיילת · או פשוט עוד שעה בים</span></div></div>
+      <div class="row"><div class="t">18:00</div><div class="w"><b>לשדה התעופה</b></div></div>
+      <div class="row"><div class="t">21:00</div><div class="w"><b>✈️ Cyprus Airways → דובאי</b><span class="meta">אישור {{REF:cyprus}} · נחיתה 01:00</span></div></div>
+    </div>
+  </article>
+
+  <article class="day" id="d-0919">
+    <div class="day-head">
+      <span class="date">שבת 19.9</span>
+      <span class="drive">דובאי ← בנגקוק ← צ׳יאנג מאי</span>
+      <span class="sleep">🛏️ צ׳יאנג מאי</span>
+    </div>
+    <h3>היום הארוך</h3>
+    <p class="intro">יום המעבר הגדול. בסופו אתם בצפון תאילנד — ומשם והלאה זה כבר רק טיול.</p>
+
+    <div class="sched">
+      <div class="row"><div class="t">01:45</div><div class="w"><b>✈️ flydubai → בנגקוק</b><span class="meta">אישור {{REF:flydubai}} · 6.5 שעות · נחיתה DMK 11:10</span></div></div>
+      <div class="row"><div class="t">11:10</div><div class="w"><b>נוחתים בדון מואנג</b><span class="warn">⚠️ אוספים מזוודות ועושים צ׳ק-אין מחדש ל-Nok Air</span></div></div>
+      <div class="row"><div class="t">14:30</div><div class="w"><b>✈️ Nok Air DD132 → צ׳יאנג מאי</b><span class="meta">אישור {{REF:nokair}} · נחיתה 15:50</span><span class="warn">⚠️ 15 ק״ג בלבד בטיסה הזו — פחות מכל השאר</span></div></div>
+      <div class="row"><div class="t">16:15</div><div class="w"><b>🚐 אוספים את הוואן</b><span class="meta">Drive Car Rental · אישור {{REF:car}} · Toyota Commuter</span></div></div>
+      <div class="row"><div class="t">17:00</div><div class="w"><b>צ׳ק-אין במלון בעיר</b></div></div>
+      <div class="row"><div class="t soft">ערב</div><div class="w"><b>🏮 שוק ההליכה של שבת</b><span class="meta">רחוב וואלאי — אם יש כוח. אם לא, הוא חוזר גם מחר</span></div></div>
+    </div>
+
+    <div class="note tip">
+      <b>הטיפ היחיד שחשוב הערב</b>
+      אל תילחמו בג׳ט לג. תאילנד מקדימה את ישראל בארבע שעות בלבד — לכו לישון בשעה מקומית סבירה והכל מסתדר עד הבוקר.
+    </div>
+  </article>
 </section>
 
-<section id="flights" class="ch-gold">
-  <div class="wrap">
-    <div class="eyebrow"><span class="num">הכרטיסים שלכם</span><span class="dates">מה כבר מוזמן · מה עוד חסר</span></div>
-    <h2>הטיסות: מה יש ביד</h2>
-    <p class="lead">הטיסות הבינלאומיות סגורות ומשולמות ($6,684). הן עוברות דרך לרנקה ודובאי — מה שמוסיף שתי לינות בקפריסין ויום שלם בדובאי בדרך חזרה. הנה הכל, לפי סדר.</p>
-
-    <h3>✈️ הלוך: תל אביב ← לרנקה ← דובאי ← בנגקוק</h3>
-    <div class="tbl"><table>
-      <tr><th>טיסה</th><th>תאריך</th><th>המראה</th><th>נחיתה</th><th>הערות</th></tr>
-      <tr><td><strong>IZ 1161</strong><span class="wd">ארקיע / Fly Lili</span></td><td class="num-cell">חמישי<br>17.9</td><td class="num-cell">תל אביב נתב״ג<br><strong>21:55</strong> (טרמינל 1)</td><td class="num-cell">לרנקה<br><strong>22:55</strong></td><td>התייצבות 18:55. שעת טיסה אחת בלבד.<br>🛏️ <strong>לינה בלרנקה</strong></td></tr>
-      <tr><td><strong>CY 0106</strong><span class="wd">Cyprus Airways</span></td><td class="num-cell">שישי<br>18.9</td><td class="num-cell">לרנקה<br><strong>13:20</strong></td><td class="num-cell">דובאי T1<br><strong>18:15</strong></td><td>3:55 שעות. יש בוקר פנוי בלרנקה.</td></tr>
-      <tr><td><strong>FZ 1583</strong><span class="wd">flydubai</span></td><td class="num-cell">שבת<br>19.9</td><td class="num-cell">דובאי T3<br><strong>01:45</strong></td><td class="num-cell">בנגקוק <strong>DMK</strong><br><strong>11:10</strong></td><td>6:25 שעות. לפני כן: 7.5 שעות המתנה בדובאי (לילה).</td></tr>
-    </table></div>
-
-    <h3>🏠 חזור: בנגקוק ← דובאי ← לרנקה ← תל אביב</h3>
-    <div class="tbl"><table>
-      <tr><th>טיסה</th><th>תאריך</th><th>המראה</th><th>נחיתה</th><th>הערות</th></tr>
-      <tr><td><strong>FZ 1336</strong><span class="wd">flydubai</span></td><td class="num-cell">ראשון<br>4.10</td><td class="num-cell">בנגקוק <strong>DMK</strong><br><strong>23:50</strong></td><td class="num-cell">דובאי T3<br><strong>03:25</strong> (5.10)</td><td>יש לכם יום שלם בבנגקוק לפני!</td></tr>
-      <tr><td><strong>CY 0107</strong><span class="wd">Cyprus Airways</span></td><td class="num-cell">שני<br>5.10</td><td class="num-cell">דובאי T1<br><strong>19:15</strong></td><td class="num-cell">לרנקה<br><strong>22:40</strong></td><td>⏳ <strong>15 שעות ו-50 דקות בדובאי</strong> — יום שלם באמצע!<br>🛏️ <strong>לינה בלרנקה</strong></td></tr>
-      <tr><td><strong>IZ 166</strong><span class="wd">ארקיע / Fly Lili</span></td><td class="num-cell">שלישי<br>6.10</td><td class="num-cell">לרנקה<br><strong>10:20</strong></td><td class="num-cell">תל אביב<br><strong>11:20</strong> 🇮🇱</td><td>התייצבות 07:20.</td></tr>
-    </table></div>
-
-    <div class="note gold">
-      <b>מספרי ההזמנה — שמרו בטלפון</b>
-      <strong>ארקיע:</strong> {{REF:arkia}} (שירות 03-6903712 · כבודה 03-7230848) · <strong>flydubai:</strong> {{REF:flydubai}} · <strong>Cyprus Airways:</strong> {{REF:cyprus}} (שירות +971-600-544445).<br>
-      7 נוסעים: יובל, קרן, אלכס, נועה, יונתן (מבוגרים) + איתמר ודורי (ילדים). כל מספרי הכרטיסים האלקטרוניים נמצאים בקובץ <code>BOOKINGS.md</code> בתיקיית הטיול.
-    </div>
-
-    <div class="note warn">
-      <b>🚨 בעיית הכבודה — הדבר הראשון לעשות</b>
-      בקטע flydubai יש <strong>30 ק״ג לכל אחד מ-7 הנוסעים</strong> (210 ק״ג). אבל בטיסות ארקיע לקפריסין יש רק <strong>2 מזוודות + 5 טרולי = ~80 ק״ג</strong> — לשבעה אנשים, לשלושה שבועות. ארקיע היא צוואר הבקבוק, והחזרה מתאילנד היא האילוץ האמיתי.<br><br>
-      👉 <strong>להוסיף 3 מזוודות (סה״כ 5) = $300 ≈ ₪900</strong> לשני הכיוונים. ארבעה כללים ששווים כסף:<br>
-      <strong>1.</strong> 🚫 <strong>לא בטלפון!</strong> ב"ניהול הזמנה" באתר ארקיע (מספיק מספר ההזמנה) אין דמי טיפול — טלפון מוסיף $20.<br>
-      <strong>2.</strong> 👤 <strong>מזוודה אחת לכל שם.</strong> שנייה על אותו נוסע עולה $70, שלישית $90 — "ראשונה" על כל נוסע היא תמיד $50.<br>
-      <strong>3.</strong> ⚖️ <strong>מזוודת ארקיע = 20 ק״ג</strong> (לא 23). עודף עולה $10 לק״ג — מזוודה שלמה עולה $50, אז עודף אף פעם לא משתלם. קחו משקל מזוודות נייד.<br>
-      <strong>4.</strong> 🎒 <strong>מזוודות ולא טרולי:</strong> $50 ל-20 ק״ג לעומת $25 ל-8 ק״ג. פי 2.5 משתלם.<br><br>
-      ⏰ <strong>לקנות עכשיו</strong> — המחיר נקבע ביום הרכישה והתעריף עלה 3 פעמים ב-18 חודשים. ובשום מקרה לא להשאיר את זה לדלפק בלרנקה: שם זה €85 למזוודה, היקר ביותר.
-    </div>
-
-    <div class="note tip">
-      <b>שני כרטיסים נפרדים — מה זה אומר בפועל</b>
-      ארקיע היא הזמנה נפרדת מ-flydubai. לכן בלרנקה <strong>אוספים את המזוודות ויוצאים מהשדה</strong> (ממילא ישנים שם), ולמחרת עושים צ׳ק-אין מחדש. מלרנקה ועד בנגקוק — הכל הזמנה אחת, הכבודה עוברת ישירות. המרווחים ענקיים (14 שעות בהלוך, 11.5 בחזור) אז אין סיכון אמיתי לפספס.
-    </div>
-
-    <h3>🛬 בתוך תאילנד — מה סגור ומה נשאר</h3>
-    <div class="tbl"><table>
-      <tr><th>קטע</th><th>תאריך</th><th>פרטים</th><th>סטטוס</th></tr>
-      <tr><td>דון מואנג ← צ׳יאנג מאי</td><td class="num-cell">שבת 19.9</td><td><strong>Nok Air DD132</strong> · 14:35→15:50 · 15 ק״ג · מושבים צמודים</td><td>✅ שולם</td></tr>
-      <tr><td>ואן 9 מקומות (Toyota Commuter)</td><td class="num-cell">19–26.9</td><td>איסוף והחזרה בשדה CNX · כל הביטוחים כלולים</td><td>✅ שולם</td></tr>
-      <tr><td>צ׳יאנג מאי ← קוסמוי</td><td class="num-cell">שבת 26.9</td><td><strong>Bangkok Airways PG242</strong> · 11:35→13:20 ישירה · 20 ק״ג</td><td>✅ שולם</td></tr>
-      <tr><td>שדה סמוי ← קופנגן</td><td class="num-cell">שבת 26.9</td><td><strong>Boonsiri</strong> ואן+קטמרן · 15:30→16:30 · כולל איסוף מהשדה</td><td>✅ שולם</td></tr>
-      <tr><td>קופנגן ← סמוי ← בנגקוק</td><td class="num-cell">חמישי 1.10</td><td>מעבורת צהריים + Bangkok Airways ערב (19:20/20:05, ~₪410)</td><td>⬜ <strong>להזמין</strong></td></tr>
-    </table></div>
-    <div class="note warn">
-      <b>⚠️ שתי פעולות ביצוע על ההזמנות הקיימות</b>
-      <strong>1. שעת איסוף הוואן:</strong> בהזמנה רשום 12:00, אבל אתם נוחתים 15:50. להתקשר ל-+66-84-700-4384 ולעדכן הגעה ב-16:15 — שלא ישחררו את הרכב.<br>
-      <strong>2. הכבודה בטיסות הפנים קטנה מהבינלאומיות:</strong> Nok = 15 ק״ג · Bangkok Airways = 20 ק״ג (מול 30 בבינלאומיות). לארוז כך שאף מזוודה לא עוברת 15 ק״ג — ואתם מכוסים בכל המסלול.
-    </div>
-
-    <h3>🚐 הוואן — מוזמן ✅</h3>
-    <ul>
-      <li><strong>Toyota Commuter 3.0</strong> (או דומה, 2020–2025) · 12 מקומות · 4 מזוודות גדולות — שולם ฿15,476 כולל <strong>כל חבילת הביטוחים ב-0</strong> (CDW, Super CDW, Full Protection, גניבה, צמיגים).</li>
-      <li><strong>איסוף:</strong> שדה צ׳יאנג מאי, אולם נכנסים קומה 1 בין שערים 8–9, שבת 19.9 (לעדכן ל-16:15!) · <strong>החזרה:</strong> אותו מקום, שבת 26.9 עד 08:30, עם מיכל מלא.</li>
-      <li><strong>לדלפק:</strong> אישור ההזמנה · דרכון · <strong>רישיון נהיגה בינלאומי</strong> (חובה! מוציאים בממסי לשני ההורים) · אשראי על שם יובל לפיקדון ฿20,000.</li>
-      <li>נוהגים בצד <strong>שמאל</strong> · חגורות לכולם · נסיעות הרים באור יום בלבד · לצלם את הרכב מכל הכיוונים באיסוף.</li>
-    </ul>
-
-    <h3>🚖 ומה בלי רכב?</h3>
-    <ul>
-      <li><strong>בנגקוק:</strong> ואן פרטי מוזמן מראש (Klook/GetYourGuide, ~฿1,100–1,600 מהשדה למלון) — עדיף על שתי מוניות אחרי טיסת לילה. בעיר: שני Grab במקביל, רכבת BTS/MRT, וסירות הנהר (הכי כיף).</li>
-      <li><strong>קופנגן:</strong> שוכרים באי SUV מסוג Isuzu MU-7 (7 מקומות, ~฿1,200–1,500 ליום) — יום השכרה עולה פחות מנסיעת סונגטאו משפחתית אחת.</li>
-      <li><strong>צ׳יאנג מאי בימי העיר:</strong> סונגטאו אדום (฿30–50 לאדם לנסיעה בעיר) או Grab.</li>
-    </ul>
-  </div>
-  <div class="wrap"><hr class="sep"></div>
-</section>
-
-<section id="theway" class="ch-gold">
-  <div class="wrap">
-    <div class="eyebrow"><span class="num">הדרך</span><span class="dates">קפריסין · דובאי · והחזרה</span></div>
-    <h2>שתי עצירות שאפשר להפוך לבונוס</h2>
-    <p class="lead">המסלול דרך לרנקה ודובאי מוסיף שלוש "תחנות ביניים" שצריך לתכנן: לילה בקפריסין בהלוך, לילה בשדה בדובאי, ובחזרה — יום שלם בדובאי ועוד לילה בקפריסין. עם קצת תכנון זה לא סבל, זה שני ימי בונוס.</p>
-
-    <h3>🇨🇾 לרנקה, לילה ראשון · חמישי 17.9 → שישי 18.9</h3>
-    <p>נוחתים ב-22:55 וממריאים למחרת ב-13:20. יש לכם <strong>14 שעות</strong> — לילה שינה ובוקר אמיתי על הים.</p>
-    <ul>
-      <li><strong>ויזה:</strong> ישראלים נכנסים לקפריסין ללא ויזה (עד 90 יום). דרכון בתוקף 3 חודשים מעבר לתאריך היציאה. נדרש <strong>ביטוח נסיעות עם כיסוי רפואי של €30,000</strong> — עוד סיבה לסגור ביטוח מראש.</li>
-      <li><strong>מהשדה:</strong> מונית רגילה לוקחת 4 נוסעים — צריך <strong>מיניוואן</strong> (חברות מקומיות כמו Larnaca Taxi מפעילות 7–8 מקומות, משלמים לרכב ולא לאדם). תעריף לילה חל מ-20:31. תקציב <strong>€35–55</strong>. <strong>להזמין מראש</strong> — 23:00 עם 7 אנשים ומזוודות זה לא הזמן לאלתר.</li>
-    </ul>
-
-    <h4>🛏️ איפה לישון — מחירים אמיתיים לתאריכים שלכם</h4>
-    <div class="tbl"><table>
-      <tr><th>מקום</th><th>מה מקבלים ל-7</th><th>17→18.9</th><th>5→6.10</th><th>דירוג</th></tr>
-      <tr><td><strong>⭐ Lakis Court</strong><span class="wd">על החוף, 0.6 ק״מ מהמרכז</span></td><td>3 סטודיו (Studio Plus + 2 רגילים)</td><td class="num-cell">€225</td><td class="num-cell"><strong>€210</strong></td><td class="num-cell"><strong>9.2</strong><span class="wd">3,118 ביקורות · מיקום 9.6</span></td></tr>
-      <tr><td><strong>Blazer Residence</strong><span class="wd">300 מ׳ מהחוף</span></td><td><strong>דירת 3 חדרים אחת</strong> (55 מ״ר, 6 מיטות)</td><td class="num-cell">€218</td><td class="num-cell">—</td><td class="num-cell">8.5<span class="wd">2,034 ביקורות</span></td></tr>
-      <tr><td>FatCow Suites City Centre</td><td>2 סוויטות 45 מ״ר</td><td class="num-cell">€214</td><td class="num-cell">€230</td><td class="num-cell">9.4</td></tr>
-      <tr><td>Sunflower Hotel Apartments<span class="wd">הזול ביותר הסביר</span></td><td>2 דירות חדר, 8 מיטות</td><td class="num-cell">€171</td><td class="num-cell">—</td><td class="num-cell">8.4</td></tr>
-    </table></div>
-    <div class="note gold">
-      <b>ההמלצה: Lakis Court לשני הלילות (€435 סה״כ)</b>
-      למה דווקא הוא: <strong>הוא ממש על החוף</strong> — ובבוקר שישי אתם רוצים לרדת לים בפיג׳מה, לא לנסוע אליו. דירוג 9.2 עם 3,118 ביקורות ומיקום 9.6 זה יוצא דופן, והמחיר לשבעה נפשות זול משני חדרי מלון רגילים. ולישון באותו מקום בשני הכיוונים אומר שבחזרה אתם כבר יודעים את הדרך, את המונית ואת ארוחת הבוקר.<br>
-      <strong>החלופה:</strong> אם חשוב לכם דירה אחת עם מפתח אחד במקום 3 סטודיו — <strong>Blazer Residence</strong>, דירת 3 חדרים ב-€218.<br>
-      ⚠️ בשתי ההזמנות: <strong>לציין בהערות "הגעה בסביבות 23:30 מהשדה"</strong> ולקבל אישור בכתב.
-    </div>
-    <div class="note gold">
-      <b>🌊 בוקר שישי — החלק הכי טוב</b>
-      הצ׳ק-אין ל-CY0106 נפתח ב-10:20, מספיק להיות בשדה ב-10:30. כלומר יש לכם בוקר שלם:<br>
-      <strong>07:00</strong> — שחייה במקנזי ביץ׳. הים בספטמבר הוא <strong>28°</strong>, רדוד ורגוע, עם מקלחות על החוף. <strong>תארזו בגדי ים בתיק היד</strong> — זה מה שהילדים יזכרו מקפריסין.<br>
-      <strong>08:00</strong> — ארוחת בוקר על הים.<br>
-      <strong>09:00</strong> — <strong>האלה סולטן טקה</strong>: מסגד היסטורי מרהיב בין דקלים, ממש ליד השדה (5 דקות) — כניסה חינם, פתוח 08:30–17:00. נשים מכסות ראש, כתפיים וברכיים (יש צעיפים בכניסה).<br>
-      <strong>10:00</strong> — לשדה. אפשר גם באוטובוס 425: €1.50 לאדם במקום €40 במוניות.<br><br>
-      ⚠️ <strong>ציפיות מאגם המלח:</strong> בספטמבר הוא <strong>יבש לגמרי</strong> — קרום מלח לבן, לא אגם. והפלמינגו מגיעים רק בנובמבר–מרץ. המסגד הוא האטרקציה; האגם הוא סקרנות.
-    </div>
-
-    <h3>🇦🇪 דובאי, לילה בשדה · שישי 18.9 → שבת 19.9</h3>
-    <p>נוחתים ב-T1 ב-18:15 וממריאים מ-T3 ב-01:45. <strong>7.5 שעות באמצע הלילה.</strong> ההמלצה ברורה: <strong>להישאר בצד האווירי (airside)</strong> ולא לצאת.</p>
-    <ul>
-      <li><strong>המעבר T1 → T3 הוא airside</strong> — מסדרון עם מדרכות נעות ורכבת פנימית, 15–20 דקות. בלי ביקורת דרכונים ובלי לגעת במזוודות.</li>
-      <li>🎠 <strong>DXB Family Zone</strong> — אזור משחקים חינמי, 24 שעות, ב<strong>קונקורס B</strong> של T3: משחקייה רכה, קיר טיפוס, משחקים אינטראקטיביים וישיבה משפחתית. הנכס הכי טוב בשדה עבורכם, ובחינם.</li>
-      <li>😴 <strong>תאי שינה Sleepover</strong> — גם הם בקונקורס B (הכי גדול והכי זול, <strong>מ-$29 לאדם</strong>), משכירים לפי שעה, כולל תאים זוגיים וכאלה עם מיטת ילד נשלפת. ל-7 אנשים ל-6 שעות: בערך $400–700.</li>
-      <li>הטיסה הבאה היא <strong>לילית, 6.5 שעות</strong> — כולם ישנים עליה, ונוחתים בבנגקוק ב-11:10 עם יום שלם לפניכם. זה עובד לטובתכם.</li>
-    </ul>
-
-    <h3>☀️ דובאי, 16 שעות · שני 5.10 <span class="pill must">ההחלטה הגדולה</span></h3>
-    <p>נוחתים ב-<strong>03:25 לפנות בוקר</strong> וממריאים ב-<strong>19:15</strong>. בדיקת מציאות: כל אטרקציה בדובאי נפתחת ב-10:00, ב-10:00 כבר 36 מעלות, ואתם צריכים להיות ב-T1 בערך ב-16:00. כלומר יש <strong>6 שעות מתות (04:00–10:00) שחייבות להיות שינה</strong>, ואחריהן חלון של ~5 שעות.</p>
-    <div class="note gold">
-      <b>⭐ המלון: Premier Inn Dubai International Airport — $198 לשלושה חדרים</b>
-      בדקתי מחירים אמיתיים לתאריכים שלכם, וזו לא הייתה תחרות צמודה:<br><br>
-      <strong>Premier Inn DXB</strong> — <strong>$198</strong> לחדר משפחתי + 2 חדרים זוגיים (ילד אחד ישן חינם), 800 מ׳ מהשדה, <strong>דירוג 8.7 עם 23,105 ביקורות</strong>, <strong>שאטל חינם כל 30 דקות ל-T1 ול-T3</strong>, ביטול חינם ו<strong>בלי תשלום מראש</strong>. יש בריכה על הגג.<br><br>
-      להשוואה, תאי השינה בתוך הטרמינל (Sleepover) עולים <strong>$417–660</strong> לאותה משפחה — פי 2–3 יותר, בלי בריכה, בלי אור יום ובלי מקלחת אמיתית. גם ibis Styles ($178, דירוג 8.0) ו-Millennium ($284, 8.5, עם בריכת ילדים) הם אופציות, אבל ה-Premier Inn מנצח בשילוב מחיר-דירוג-שאטל.<br><br>
-      📌 <strong>להזמין את הלילה של 4→5 באוקטובר</strong> (לא 5→6!) — ככה החדר פיזית מחכה לכם כשאתם נכנסים ב-05:00. לשלוח הודעה למלון שמאשרת הגעה ב-04:30–05:00.
-    </div>
-    <div class="note tip">
-      <b>ומה עושים אחרי שישנים? שתי תוכניות טובות</b>
-      עד 11:00 כולם ישנים — על זה אין ויכוח. השאלה היא מה עושים בין 11:00 ל-15:30:<br><br>
-      <strong>🏊 תוכנית א׳ — יום בריכה.</strong> בריכת הגג של המלון, ארוחת צהריים, אריזה רגועה, שאטל לשדה. אחרי 15 לילות בתאילנד וטיסת לילה — יש בזה משהו. אפס לוגיסטיקה, אפס סיכון, וכולם עולים למטוס במצב טוב.<br><br>
-      <strong>🏙️ תוכנית ב׳ — קפיצה לדובאי מול והבורג׳.</strong> לגמרי אפשרי, וכולה ממוזגת: <strong>רכבת תחתית מהשדה</strong> (יש תחנה גם ב-T1 וגם ב-T3, קו אדום ישיר לתחנת Burj Khalifa/Dubai Mall, ~25 דקות, כמה שקלים לאדם — ומוניות ממילא לוקחות 4 נוסעים בלבד).<br>
-      • <strong>11:30</strong> יוצאים · <strong>12:00</strong> מגיעים לדובאי מול<br>
-      • <strong>בורג׳ ח׳ליפה "At The Top"</strong> — להזמין <strong>שעת non-prime (עד 15:30)</strong>, AED 173 למבוגר במקום מחיר שיא. הכניסה מתוך הקניון.<br>
-      • <strong>האקווריום הענק</strong> — הקיר הענק נראה <strong>מתוך הקניון בחינם</strong>; משלמים רק אם נכנסים למנהרה.<br>
-      • ארוחת צהריים במתחם המסעדות, <strong>15:00</strong> רכבת חזרה, <strong>15:45</strong> במלון לאסוף מזוודות, <strong>16:00</strong> שאטל ל-T1.<br><br>
-      <strong>מה שכן לדעת:</strong> מופע המזרקות של דובאי מתחיל רק ב-18:00 — אתם כבר תהיו בשדה, אז את זה תפספסו בכל מקרה. ובחוץ 36 מעלות ולחות, אז הכל חייב להיות ממוזג: <strong>השוק העתיק והשייט באברה יפים אבל לא בצהריים.</strong><br><br>
-      💡 <strong>ההצעה שלי: אל תחליטו עכשיו.</strong> תזמינו את המלון (ביטול חינם), ותחליטו בבוקר של ה-5 לפי איך שכולם קמים. אם יש אנרגיה — הבורג׳. אם לא — הבריכה, ובלי טיפת אשמה.
-    </div>
-    <div class="cards">
-      <div class="card"><h4>אם בוחרים להישאר בשדה</h4><p>לגיטימי לגמרי (וגם עונה על המלצת המל״ל): תאי <strong>Sleepover בקונקורס B</strong> — הזולים ביותר — ואז <strong>DXB Family Zone</strong> החינמי. פשוט יקר יותר מהמלון.</p><span class="meta">$417–660 · מול $198 במלון</span></div>
-      <div class="card"><h4>עוד אופציות בעיר (ממוזגות)</h4><p><strong>Dubai Frame</strong> — AED 60 בלבד, רצפת זכוכית, התמורה הכי טובה בדובאי. <strong>מוזיאון העתיד</strong> — AED 169, מעולה בדיוק לגילאי 10–14.</p><span class="meta">שניהם על הקו האדום של הרכבת</span></div>
-    </div>
-    <div class="note tip">
-      <b>✅ כניסה לאמירויות עם דרכון ישראלי — מותרת, אבל יש תנאי</b>
-      לפי שגרירות איחוד האמירויות בתל אביב, ישראלים נכנסים <strong>ללא ויזה עד 90 יום</strong> במסגרת הסכם פטור הדדי. <strong>התנאי הקריטי:</strong> חייב להיות <strong>דרכון ביומטרי רגיל (5 או 10 שנים) בתוקף לפחות 6 חודשים</strong> מיום הכניסה — כלומר, עבור כניסה ב-5.10.26, בתוקף עד <strong>אחרי אפריל 2027</strong>. דרכון זמני לשנה, דרכון חירום או תעודת מעבר — <strong>לא מתקבלים</strong>.<br>
-      👉 <strong>בדקו עכשיו את שבעת הדרכונים אחד-אחד.</strong> דרכוני ילדים בישראל הם ל-5 שנים, אז דרכון שהונפק ב-2021 פג ב-2026 — בדיוק בזמן הטיול.
-    </div>
-    <div class="note warn">
-      <b>⚠️ שיקול ביטחוני — שווה לקרוא לפני שמחליטים</b>
-      המטה לביטחון לאומי מקיים <strong>אזהרת מסע ברמה 3</strong> לאיחוד האמירויות ("להימנע מנסיעה לא-חיונית"). לפי דיווחים מיולי 2026, האזהרה <strong>אינה חלה על טיסות transit</strong> — אבל ההמלצה היא <strong>להישאר בתוך הטרמינל עד הטיסה הממשיכה</strong>. בנוסף, 5.10 נופל בתוך חג סוכות, חלון שסומן בעבר כרגיש יותר.<br>
-      זה בדיוק השיקול שהופך את אופציה ב׳ (airside) ללגיטימית למרות שהיא יקרה יותר. <strong>לפני שמזמינים משהו בדובאי — לבדוק את המצב העדכני ב-gov.il או בקו המל״ל 02-6667444.</strong>
-    </div>
-    <div class="note tip">
-      <b>המזוודות לא מטרידות אתכם בדובאי</b>
-      flydubai ו-Cyprus Airways חתמו על הסכם interline במאי 2026, ואתם על כרטיס אחד — הכבודה עוברת ישירות <strong>מדון מואנג ועד לרנקה</strong>, גם בעצירה של 16 שעות. אתם לא נוגעים בה. בהלוך: מלרנקה ישירות עד בנגקוק.<br>
-      ⚠️ בצ׳ק-אין בלרנקה — <strong>ודאו שתווית המזוודה כתוב עליה BKK/DMK ולא רק DXB</strong>. אם רשום רק דובאי, בקשו לתייג מחדש.
-    </div>
-
-    <h3>🇨🇾 לרנקה, לילה אחרון · שני 5.10 → שלישי 6.10</h3>
-    <p>נוחתים ב-22:40 וטסים הביתה ב-10:20 (התייצבות 07:20). זו <strong>לינה טכנית</strong> — שינה, ארוחת בוקר, וללכת. אל תתכננו כלום.</p>
-    <ul>
-      <li>הכי חכם: <strong>אותו מקום שבו ישנתם בהלוך</strong> — אתם כבר מכירים את הדרך, את המונית ואת ארוחת הבוקר. שווה לבקש מחיר "אורח חוזר".</li>
-      <li>לבקש מראש <strong>ארוחת בוקר מוקדמת או ארוזה</strong> — או פשוט לאכול בשדה.</li>
-      <li>לעשות צ׳ק-אין אונליין לארקיע כבר בדובאי, כדי לחסוך זמן בבוקר.</li>
-      <li>נחיתה בתל אביב ב-11:20 ביום שלישי. 🇮🇱</li>
-    </ul>
-
-    <div class="note warn">
-      <b>📌 עוד דבר אחד לוודא: הקו לבנגקוק הוא חדש</b>
-      השירות של flydubai בין דובאי לדון מואנג <strong>נפתח ב-15 בספטמבר 2026</strong> — הטיסה שלכם ב-19.9 היא היום החמישי של קו חדש לגמרי, וגם הסכם ה-interline עם Cyprus Airways הוא ממאי 2026. זה לא סיכון גדול, אבל <strong>שווה לאשר מחדש את השעות כחודש לפני הנסיעה</strong> מול flydubai ({{REF:flydubai}}).
-    </div>
-  </div>
-  <div class="wrap"><hr class="sep"></div>
-</section>
+<hr class="rule">
