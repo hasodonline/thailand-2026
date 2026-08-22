@@ -210,8 +210,24 @@ dialog.lb .x{position:fixed; top:14px; inset-inline-end:16px; width:42px; height
 
 /* ---------------- stay cards ---------------- */
 .stay{border:1px solid var(--line); border-radius:var(--radius); background:var(--paper-2);
-  padding:16px 18px; margin:20px 0; box-shadow:var(--shadow)}
+  margin:20px 0; box-shadow:var(--shadow); overflow:hidden}
+.stay>.body{padding:16px 18px}
 .stay h4{margin:0 0 4px; font-size:19px; font-weight:800}
+
+/* hotel strip: one hero + a scrollable row of thumbs, all zoomable */
+.stayshots{display:grid; grid-template-columns:2fr 1fr 1fr; gap:3px; background:var(--line)}
+.stayshots button{padding:0; border:0; background:none; cursor:zoom-in; display:block; overflow:hidden}
+.stayshots img{width:100%; height:100%; object-fit:cover; display:block; transition:transform .35s}
+.stayshots button:hover img{transform:scale(1.05)}
+.stayshots button:first-child{grid-row:span 2}
+.stayshots button:first-child img{aspect-ratio:4/3}
+.stayshots button:not(:first-child) img{aspect-ratio:16/11}
+.stayshots button:nth-child(n+6){display:none}
+@media (max-width:520px){
+  .stayshots{grid-template-columns:1fr 1fr}
+  .stayshots button:first-child{grid-column:span 2; grid-row:auto}
+  .stayshots button:nth-child(n+4){display:none}
+}
 .stay .when{font-size:13.5px; font-weight:700; color:var(--chili); letter-spacing:.04em; text-transform:uppercase}
 .stay p{margin:.5em 0 0; color:var(--ink-soft); font-size:16px}
 .stay .ref{margin-top:10px; padding-top:10px; border-top:1px solid var(--line-soft);
@@ -617,24 +633,24 @@ footer.end{margin-top:60px; padding:34px 20px 46px; border-top:1px solid var(--l
   <div class="wrap">
     <h3 style="font-size:22px;margin:46px 0 6px">🏨 איפה ישנים בצפון</h3>
 
-    <div class="stay">
+    <div class="stay"><div class="body">
       <div class="when">19–22.9 · שלושה לילות</div>
       <h4>מלון בעיר העתיקה <span class="pill todo">להזמין</span></h4>
       <p>שני שווקי ההליכה במרחק הליכה, ופארק המים והראפטינג הם טיולי יום מכאן. <strong>המזוודות הגדולות נשארות כאן</strong> גם בזמן שאתם אצל הפילים.</p>
-    </div>
+    </div></div>
 
-    <div class="stay">
+    <div class="stay"><div class="stayshots"><button type="button"><img src="assets/h-chailai-1.jpg" alt="צ׳אי לאי אורכיד — תמונה 1" loading="lazy"><span class="cap" hidden>צ׳אי לאי אורכיד</span></button><button type="button"><img src="assets/h-chailai-2.jpg" alt="צ׳אי לאי אורכיד — תמונה 2" loading="lazy"><span class="cap" hidden>צ׳אי לאי אורכיד</span></button><button type="button"><img src="assets/h-chailai-3.jpg" alt="צ׳אי לאי אורכיד — תמונה 3" loading="lazy"><span class="cap" hidden>צ׳אי לאי אורכיד</span></button><button type="button"><img src="assets/h-chailai-4.jpg" alt="צ׳אי לאי אורכיד — תמונה 4" loading="lazy"><span class="cap" hidden>צ׳אי לאי אורכיד</span></button><button type="button"><img src="assets/h-chailai-5.jpg" alt="צ׳אי לאי אורכיד — תמונה 5" loading="lazy"><span class="cap" hidden>צ׳אי לאי אורכיד</span></button></div><div class="body">
       <div class="when">22–24.9 · שני לילות</div>
       <h4>🐘 Chai Lai Orchid <span class="pill paid">שולם</span></h4>
       <p>בקתות במבוק על הנהר, גשר עץ תלוי, והפילים באים למרפסת בארוחת הבוקר. שלושה חדרי River View.</p>
       <div class="ref">אישור •••••• · 082-660-2213 · explore@chailaiorchid.com</div>
-    </div>
+    </div></div>
 
-    <div class="stay">
+    <div class="stay"><div class="stayshots"><button type="button"><img src="assets/h-woo-1.jpg" alt="Woo Ma Ca Moo — תמונה 1" loading="lazy"><span class="cap" hidden>Woo Ma Ca Moo</span></button><button type="button"><img src="assets/h-woo-2.jpg" alt="Woo Ma Ca Moo — תמונה 2" loading="lazy"><span class="cap" hidden>Woo Ma Ca Moo</span></button><button type="button"><img src="assets/h-woo-3.jpg" alt="Woo Ma Ca Moo — תמונה 3" loading="lazy"><span class="cap" hidden>Woo Ma Ca Moo</span></button><button type="button"><img src="assets/h-woo-4.jpg" alt="Woo Ma Ca Moo — תמונה 4" loading="lazy"><span class="cap" hidden>Woo Ma Ca Moo</span></button><button type="button"><img src="assets/h-woo-5.jpg" alt="Woo Ma Ca Moo — תמונה 5" loading="lazy"><span class="cap" hidden>Woo Ma Ca Moo</span></button></div><div class="body">
       <div class="when">24–26.9 · שני לילות</div>
       <h4>🏘️ Woo Ma Ca Moo <span class="pill paid">שולם</span></h4>
       <p>בקתות עץ מעל נחל ביער של הוואי קאו, בגובה 1,300 מ׳ — הלילות שם ~18°. שלושה חדרים: מה-ג׳יב (3), מה-בוק (2) ומה-ראק (2), האחרון הוא הסוויטה שמעל הנהר. <strong>אונסן פרטי</strong>, וארוחות בוקר כלולות לכולם.</p>
-      <div class="ref">אישור •••••• · 080-207-6645 · צ׳ק-אין 14:30–19:00 · אין מיטות נוספות — 3+2+2 היא הקיבולת המדויקת</div>
+      <div class="ref">אישור •••••• · 080-207-6645 · צ׳ק-אין 14:30–19:00 · אין מיטות נוספות — 3+2+2 היא הקיבולת המדויקת</div></div>
     </div>
   </div>
 
@@ -703,11 +719,11 @@ footer.end{margin-top:60px; padding:34px 20px 46px; border-top:1px solid var(--l
 
   <div class="wrap">
     <h3 style="font-size:22px;margin:44px 0 6px">🏨 איפה ישנים בקופנגן</h3>
-    <div class="stay">
+    <div class="stay"><div class="stayshots"><button type="button"><img src="assets/h-santhiya-1.jpg" alt="ריזורט בתונג נאי פאן — תמונה 1" loading="lazy"><span class="cap" hidden>ריזורט בתונג נאי פאן</span></button><button type="button"><img src="assets/h-santhiya-2.jpg" alt="ריזורט בתונג נאי פאן — תמונה 2" loading="lazy"><span class="cap" hidden>ריזורט בתונג נאי פאן</span></button><button type="button"><img src="assets/h-santhiya-3.jpg" alt="ריזורט בתונג נאי פאן — תמונה 3" loading="lazy"><span class="cap" hidden>ריזורט בתונג נאי פאן</span></button><button type="button"><img src="assets/h-santhiya-4.jpg" alt="ריזורט בתונג נאי פאן — תמונה 4" loading="lazy"><span class="cap" hidden>ריזורט בתונג נאי פאן</span></button><button type="button"><img src="assets/h-santhiya-5.jpg" alt="ריזורט בתונג נאי פאן — תמונה 5" loading="lazy"><span class="cap" hidden>ריזורט בתונג נאי פאן</span></button></div><div class="body">
       <div class="when">26.9–1.10 · חמישה לילות</div>
       <h4>🏝️ ריזורט בתונג נאי פאן <span class="pill todo">להזמין</span></h4>
       <p>המפרץ הצפון-מזרחי של האי — החוף היפה ביותר, ומספיק מבודד מהמסיבות בהאד רין. שני המועמדים המובילים: <strong>Santhiya</strong> (וילות עץ מגולפות במורד גבעה, מעלית נטויה לחוף, מזח פרטי) ו-<strong>Panviman</strong> (על הצוק שבין שני המפרצים).</p>
-      <div class="ref">⚠️ <strong>כשמזמינים — לשאול על שאטל לנמל תונג סאלה.</strong> תונג נאי פאן מוחרג מכל שירותי ההסעה המשותפים באי, וזו החוליה היחידה ביום העזיבה שעדיין לא סגורה.</div>
+      <div class="ref">⚠️ <strong>כשמזמינים — לשאול על שאטל לנמל תונג סאלה.</strong> תונג נאי פאן מוחרג מכל שירותי ההסעה המשותפים באי, וזו החוליה היחידה ביום העזיבה שעדיין לא סגורה.</div></div>
     </div>
   </div>
 </section>
@@ -793,12 +809,12 @@ footer.end{margin-top:60px; padding:34px 20px 46px; border-top:1px solid var(--l
 
   <div class="wrap">
     <h3 style="font-size:22px;margin:44px 0 6px">🏨 איפה ישנים בבנגקוק</h3>
-    <div class="stay">
+    <div class="stay"><div class="stayshots"><button type="button"><img src="assets/h-chatrium-1.jpg" alt="המלון בבנגקוק — תמונה 1" loading="lazy"><span class="cap" hidden>המלון בבנגקוק</span></button><button type="button"><img src="assets/h-chatrium-2.jpg" alt="המלון בבנגקוק — תמונה 2" loading="lazy"><span class="cap" hidden>המלון בבנגקוק</span></button><button type="button"><img src="assets/h-chatrium-3.jpg" alt="המלון בבנגקוק — תמונה 3" loading="lazy"><span class="cap" hidden>המלון בבנגקוק</span></button><button type="button"><img src="assets/h-chatrium-4.jpg" alt="המלון בבנגקוק — תמונה 4" loading="lazy"><span class="cap" hidden>המלון בבנגקוק</span></button><button type="button"><img src="assets/h-chatrium-5.jpg" alt="המלון בבנגקוק — תמונה 5" loading="lazy"><span class="cap" hidden>המלון בבנגקוק</span></button></div><div class="body">
       <div class="when">1–4.10 · שלושה לילות</div>
       <h4>מלון על הנהר <span class="pill todo">להזמין</span></h4>
       <p>הריברסייד הוא המיקום הנכון עם ילדים: <strong>מעבורות במקום פקקים.</strong> רוב מה שתעשו — ואט ארון, ICONSIAM, אסיאטיק, תעלות תונבורי — נמצא על המים, וסירה בבנגקוק מהירה מכל מונית.<br>
       <strong>Chatrium Riverside</strong> — סוויטות משפחתיות עם מטבח, נדיר בעיר ומצוין לשבעה.</p>
-      <div class="ref">~$180–280 ללילה לסוויטה · לוודא קיבולת 7 נפשות לפני ההזמנה</div>
+      <div class="ref">~$180–280 ללילה לסוויטה · לוודא קיבולת 7 נפשות לפני ההזמנה</div></div>
     </div>
   </div>
 

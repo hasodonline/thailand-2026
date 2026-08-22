@@ -141,6 +141,24 @@ NAV_SETS = {
 }
 
 
+def repl_shots(m):
+    """{{SHOTS:slug|alt}} — the photo strip at the top of a lodging card."""
+    slug, _, alt = m.group(1).partition("|")
+    srcs = []
+    for i in range(1, 7):
+        p = os.path.join(ROOT, "photos", f"c_h-{slug}-{i}.jpg")
+        if os.path.exists(p):
+            srcs.append(copy_asset(p, f"h-{slug}-{i}.jpg"))
+    if not srcs:
+        missing.append(f"shots:{slug}")
+        return ""
+    cells = "".join(
+        f'<button type="button"><img src="{s}" alt="{alt} — תמונה {i + 1}" '
+        f'loading="lazy"><span class="cap" hidden>{alt}</span></button>'
+        for i, s in enumerate(srcs))
+    return f'<div class="stayshots">{cells}</div>'
+
+
 def repl_navlinks(m):
     keys = NAV_SETS.get(m.group(1))
     if not keys:
@@ -192,10 +210,14 @@ if os.path.exists(refs_path) and not PUBLIC:
 
 html = re.sub(r"\{\{IMG:([a-z0-9-]+)\}\}", repl_img, html)
 html = re.sub(r"\{\{GMAP:([a-z]+)\|(.*?)\}\}", repl_gmap, html)
+html = re.sub(r"\{\{SHOTS:([^}]+)\}\}", repl_shots, html)
 html = re.sub(r"\{\{NAVLINKS:([a-z]+)\}\}", repl_navlinks, html)
 html = re.sub(r"\{\{REF:([a-z0-9]+)\}\}", lambda m: refs.get(m.group(1), "••••••"), html)
 html = html.replace("{{DAYNAV}}", daynav())
 
+left = re.findall(r"\{\{[^}]{1,60}\}\}", html)
+if left:                       # a typo'd placeholder must never reach the page
+    missing.extend("unreplaced:" + x for x in sorted(set(left)))
 if missing:
     print("MISSING:", sorted(set(missing)))
     sys.exit(1)
