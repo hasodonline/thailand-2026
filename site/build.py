@@ -57,26 +57,19 @@ if missing:
 # and every build swaps the placeholder for a live, responsive iframe; until
 # then the guide shows how to create it. The static JPEG above always stays —
 # it is what works with no signal.
-mid_path = os.path.join(d, "mymaps-id.txt")
-mid = open(mid_path).read().strip() if os.path.exists(mid_path) else ""
-if mid:
-    embed = (
-        '<p>מפה אמיתית של Google: אפשר לגרור, לזום, ללחוץ על כל סיכה לפרטים, '
-        '<strong>ולכבות ולהדליק שכבות</strong> של כל יום.</p>'
-        '<div style="position:relative;width:100%;padding-bottom:72%;'
-        'border-radius:14px;overflow:hidden;margin:14px 0">'
-        f'<iframe src="https://www.google.com/maps/d/embed?mid={mid}&ehbc=2E312F" '
-        'style="position:absolute;inset:0;width:100%;height:100%;border:0" '
-        'loading="lazy" allowfullscreen></iframe></div>'
-        f'<p>📱 <a href="https://www.google.com/maps/d/viewer?mid={mid}" '
-        'target="_blank" rel="noopener"><strong>פתחו במפות Google בטלפון</strong></a> — '
-        'המפה נשמרת אצלכם תחת "שמורים ← מפות", עם כל הסיכות והשכבות, '
-        'ואפשר לקבל ניווט לכל נקודה.</p>')
+# The interactive map. Built by make_webmap.py from Google's own HIGH_QUALITY
+# route geometry — no simplification, unlike the static JPEG which had to fit
+# inside a URL. The key it carries is referrer-locked to this site, restricted
+# to Maps JS alone, and capped at 300 loads/day against a 10,000/month free
+# allowance, so it cannot run up a bill even if lifted from the page source.
+wm_path = os.path.join(d, "webmap.html")
+if os.path.exists(wm_path):
+    embed = ('<p>מפת Google אמיתית עם <strong>המסלולים המקוריים שלה</strong>, בלי קירוב. '
+             'אפשר לגרור, לזום, ללחוץ על סיכה לפרטים, '
+             'ו<strong>לכבות ולהדליק כל יום</strong> בכפתורים שמתחת.</p>'
+             + open(wm_path, encoding="utf-8").read())
 else:
-    embed = ('<p>קובצי השכבות מוכנים ב-<code>docs/kml/</code>. '
-             'מייבאים אותם ל-Google My Maps (קובץ אחד לכל שכבה), '
-             'ואז מדביקים את מזהה המפה ב-<code>site/mymaps-id.txt</code> '
-             'והמפה החיה תופיע כאן אוטומטית בבנייה הבאה.</p>')
+    embed = '<p>המפה האינטראקטיבית תיבנה בהרצה הבאה של make_webmap.py.</p>'
 out = out.replace("{{MYMAPS}}", embed)
 
 if PUBLIC:

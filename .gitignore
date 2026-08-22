@@ -16,6 +16,11 @@ site/private-refs.json
 # מפתח Google Routes API — לעולם לא ל-git
 site/.maps-api-key
 site/.serpapi-key
+
+# מפתח המפה באתר — מוגבל ל-referrer ולMaps JS, ומכוסה בתקרה יומית.
+# הוא כן מופיע ב-docs/index.html בכוונה; זה הקובץ המקורי שלא נחוץ ב-git.
+site/.web-map-key
+site/polylines_cache.json
 site/hotels_cache.json
 site/routes_cache.json
 site/routes_cache_google.json

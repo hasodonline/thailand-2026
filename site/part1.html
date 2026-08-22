@@ -169,6 +169,23 @@
   footer{padding:56px 0 72px; border-top:1px solid var(--line); margin-top:64px}
   footer p{font-size:14px; color:var(--ink-soft)}
   hr.sep{border:none; border-top:1px solid var(--line); margin:56px 0 0}
+
+/* ── המפה האינטראקטיבית ── */
+.livemap{margin:18px 0}
+#tmap{width:100%;aspect-ratio:4/3;max-height:76vh;border-radius:14px;background:#eceae4}
+@media(max-width:640px){#tmap{aspect-ratio:3/4}}
+.tpin{width:19px;height:19px;border-radius:50%;border:3px solid #fff;
+      box-shadow:0 1px 5px rgba(0,0,0,.45);cursor:pointer}
+.tinfo{font-family:inherit;direction:rtl;text-align:right;font-size:14.5px;line-height:1.65;min-width:190px}
+.tinfo a{color:var(--teal);font-weight:600;text-decoration:none}
+.maplegend{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.mapchip{display:inline-flex;align-items:center;gap:7px;border:1.5px solid #d8d2c6;
+         background:#fff;border-radius:999px;padding:7px 14px;font:inherit;font-size:13.5px;
+         cursor:pointer;color:var(--ink);transition:opacity .15s,background .15s}
+.mapchip i{width:13px;height:13px;border-radius:3px;flex:none}
+.mapchip span{color:var(--ink-soft);font-size:12.5px}
+.mapchip:hover{background:#faf8f4}
+.mapchip.off{opacity:.4;background:#f2efe9}
 </style>
 
 <header class="hero">
