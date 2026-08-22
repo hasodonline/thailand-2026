@@ -35,7 +35,12 @@ PLACES = {
     "morningstar":  (18.8778, 99.3428),  # Morning Star Glamping
     "puradise":     (18.8837, 99.3599),  # Puradise Private Residence
     "momandme":     (18.9192, 99.1364),  # Mom and Me Resort & Farm
+    "miipaaai":     (18.86493, 99.34655),  # MiiPaaAii, 50/8 Moo 3 — the mountain base
     "maekampong":   (18.8646, 99.3010),  # Mae Kampong mountain village
+    "portare":      (18.8638, 99.3425),  # Portare.home, west end of Mae Kampong
+    "woomacamoo":   (18.8642, 99.3424),  # woo ma ca moo homestay
+    "mkcenter":     (18.8655, 99.3510),  # Mae Kampong village centre
+
     "mkwaterfall":  (18.8626, 99.3053),  # Mae Kampong waterfall
     "thegiant":     (18.8924, 99.3513),  # The Giant treehouse cafe, Mae Kampong
     "baankangwat":  (18.7720, 98.9420),  # Baan Kang Wat artist village
