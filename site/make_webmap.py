@@ -77,16 +77,18 @@ def build():
   const D = {data};
   window.initTMap = function(){{
     const map = new google.maps.Map(document.getElementById('tmap'), {{
-      center: {{lat: 18.94, lng: 98.99}}, zoom: 10, mapId: 'thailand_north',
+      center: {{lat: 18.94, lng: 98.99}}, zoom: 10,
       mapTypeControl: false, streetViewControl: false, fullscreenControl: true
     }});
     const info = new google.maps.InfoWindow();
     D.pins.forEach(p => {{
-      const dot = document.createElement('div');
-      dot.className = 'tpin';
-      dot.style.background = p.color;
-      const mk = new google.maps.marker.AdvancedMarkerElement({{
-        map, position: {{lat: p.lat, lng: p.lng}}, title: p.title, content: dot
+      const mk = new google.maps.Marker({{
+        map, position: {{lat: p.lat, lng: p.lng}}, title: p.title,
+        icon: {{
+          path: google.maps.SymbolPath.CIRCLE, scale: 9,
+          fillColor: p.color, fillOpacity: 1,
+          strokeColor: '#ffffff', strokeWeight: 3
+        }}
       }});
       mk.addListener('click', () => {{
         const link = p.pid
@@ -117,8 +119,8 @@ def build():
   }};
 }})();
 </script>
-<script async defer
-  src="https://maps.googleapis.com/maps/api/js?key={KEY}&libraries=marker,geometry&callback=initTMap&language=iw&region=TH"></script>'''
+<script async
+  src="https://maps.googleapis.com/maps/api/js?key={KEY}&libraries=geometry&callback=initTMap&loading=async&language=iw&region=TH"></script>'''
     out = os.path.join(D, "webmap.html")
     with open(out, "w", encoding="utf-8") as f:
         f.write(html)
