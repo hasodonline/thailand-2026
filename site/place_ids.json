@@ -66,5 +66,9 @@
  "city": {
   "id": "ChIJQz10Z5k62jARpYn5FZIkpZw",
   "name": "Old City"
+ },
+ "cityhotel": {
+  "id": "ChIJJxgmvkU72jARjr3fLvG0VUA",
+  "name": "Phra Singh Village Hotel"
  }
 }
